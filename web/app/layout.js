@@ -1,5 +1,6 @@
 import localFont from 'next/font/local';
 import './globals.css';
+import { Analytics } from '@vercel/analytics/next';
 
 // Self-hosted, preloaded fonts. next/font eliminates the flash-of-unstyled-text
 // (FOUT) by preloading and applying a size-adjusted fallback to avoid layout
@@ -54,7 +55,10 @@ export const viewport = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${dmSans.variable} ${ppEditorial.variable} ${fhLecturis.variable}`}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
