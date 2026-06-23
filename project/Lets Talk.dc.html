@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<template id="__bundler_thumbnail">
+  <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <rect width="100" height="100" fill="#F4F1EA"></rect>
+    <rect x="38" y="40" width="24" height="16" fill="#FEEF24"></rect>
+    <text x="50" y="53" font-family="Arial, sans-serif" font-weight="800" font-size="13" fill="#0C0C0C" text-anchor="middle">N</text>
+    <rect x="59" y="52" width="3" height="3" fill="#FF2600"></rect>
+  </svg>
+</template>
+<helmet>
+<script src="asset-manifest-2.js"></script>
+<meta name="ext-resource-dependency" content="https://assets.calendly.com/assets/external/widget.css">
+<meta name="ext-resource-dependency" content="https://assets.calendly.com/assets/external/widget.js">
+<link rel="stylesheet" href="_ds/neuroid-2-0-visual-identity-257bac54-27b9-4b29-ae4f-f60a1c65bb4f/styles.css">
+<style>
+  *{box-sizing:border-box;}
+  a button{transition:transform .14s cubic-bezier(.2,.7,.2,1),box-shadow .14s cubic-bezier(.2,.7,.2,1),background .15s ease;}
+  a:hover button{transform:translate(-2px,-2px) !important;box-shadow:5px 5px 0 0 var(--neuroid-ink) !important;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:#F4F1EA;}
+  [data-reveal]{opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1);}
+  [data-reveal].in{opacity:1;transform:none;}
+  .lt-main{display:grid;grid-template-columns:1.02fr 0.98fr;gap:clamp(36px,5vw,72px);align-items:start;}
+  .bk-col{position:sticky;top:84px;}
+  .lw-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+  .lw-cell{background:var(--neuroid-paper);border:1.5px solid var(--neuroid-ink);height:clamp(58px,7vw,84px);display:flex;align-items:center;justify-content:center;padding:clamp(16px,1.8vw,24px);}
+  .stat-strip{display:grid;grid-template-columns:repeat(3,1fr);border-top:1.5px solid var(--neuroid-ink);border-bottom:1.5px solid var(--neuroid-ink);}
+  .stat-strip > div + div{border-left:1.5px solid var(--neuroid-ink);}
+  .bk-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,56px);align-items:start;}
+  .cal-widget{min-width:320px;height:700px;}
+  .lw-logo{max-width:94%;max-height:84%;object-fit:contain;filter:grayscale(1);opacity:0.66;transition:filter .25s var(--ease-snap),opacity .25s var(--ease-snap);}
+  .lw-logo:hover{filter:none;opacity:1;}
+  @media (max-width:900px){
+    .lt-main{grid-template-columns:1fr;gap:clamp(32px,6vw,48px);}
+    .bk-col{position:static;}
+    .lw-grid{grid-template-columns:repeat(3,1fr);}
+    .bk-grid{grid-template-columns:1fr;}
+    .cal-widget{height:840px;}
+  }
+  @media (max-width:620px){
+    .stat-strip{grid-template-columns:1fr;}
+    .stat-strip > div + div{border-left:none;border-top:1.5px solid var(--neuroid-ink);}
+    .lt-tg{grid-template-columns:1fr !important;}
+  }
+  @media (prefers-reduced-motion:reduce){[data-reveal]{opacity:1 !important;transform:none !important;}}
+</style>
+</helmet>
+
+<div ref="{{ rootRef }}" style="font-family:var(--font-sans);background:#F4F1EA;color:var(--neuroid-ink);overflow-x:hidden;">
+
+  <!-- NAV -->
+  <header style="position:sticky;top:0;z-index:50;background:rgba(244,241,234,0.92);backdrop-filter:blur(8px);border-bottom:1.5px solid var(--neuroid-ink);">
+    <div style="max-width:1200px;margin:0 auto;padding:14px clamp(18px,4vw,48px);display:flex;align-items:center;justify-content:space-between;gap:20px;">
+      <a href="Neuroid Home.dc.html" style="display:flex;align-items:center;flex:none;text-decoration:none;"><img src="assets/brand/neuroid-logo-black.svg" alt="Neuroid" style="height:34px;width:auto;display:block;"></a>
+      <a href="#book" style="display:inline-flex;align-items:center;gap:8px;text-decoration:none;background:var(--neuroid-ink);color:var(--neuroid-paper);border:1.5px solid var(--neuroid-ink);box-shadow:4px 4px 0 0 var(--neuroid-ink);padding:11px 18px;font-family:var(--font-sans);font-weight:700;font-size:14px;letter-spacing:-0.01em;white-space:nowrap;transition:background .15s var(--ease-snap),color .15s var(--ease-snap),transform .15s var(--ease-snap),box-shadow .15s var(--ease-snap);" style-hover="background:var(--neuroid-yellow);color:var(--neuroid-ink);transform:translate(-2px,-2px);box-shadow:6px 6px 0 0 var(--neuroid-ink);">Book a Growth Audit</a>
+    </div>
+  </header>
+
+  <!-- TRUST + BOOKING (two-column) -->
+  <section style="padding:clamp(28px,4vw,52px) clamp(18px,4vw,48px) clamp(40px,5vw,72px);">
+    <div style="max-width:1180px;margin:0 auto;" class="lt-main">
+
+      <!-- LEFT: proof -->
+      <div>
+        <div data-reveal style="display:flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:12px;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:20px;">
+          <span style="width:8px;height:8px;background:var(--neuroid-red);display:inline-block;flex:none;"></span>
+          <span>Let's talk</span>
+        </div>
+        <h1 data-reveal style="font-family:var(--font-sans);font-weight:700;letter-spacing:-0.035em;line-height:1.02;font-size:clamp(1.9rem,3.6vw,3rem);margin:0;max-width:560px;text-wrap:balance;color:var(--neuroid-ink);">Neuroid is trusted by India's <span class="nrd-highlight">fastest-growing</span> brands.</h1>
+
+        <div data-reveal style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--neuroid-grey);margin:clamp(26px,3.4vw,38px) 0 16px;">A few stats we're proud of</div>
+        <div data-reveal style="display:flex;flex-direction:column;gap:15px;margin-bottom:clamp(30px,4vw,44px);">
+          <div style="display:flex;align-items:center;gap:13px;">
+            <span style="width:14px;height:14px;background:var(--neuroid-yellow);border:1.5px solid var(--neuroid-ink);flex:none;"></span>
+            <span style="font-size:clamp(1.02rem,1.4vw,1.18rem);line-height:1.4;"><strong style="font-weight:700;">450Cr+</strong> revenue generated for brands</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:13px;">
+            <span style="width:14px;height:14px;background:var(--neuroid-yellow);border:1.5px solid var(--neuroid-ink);flex:none;"></span>
+            <span style="font-size:clamp(1.02rem,1.4vw,1.18rem);line-height:1.4;"><strong style="font-weight:700;">5+ years</strong> of transformative client success</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:13px;">
+            <span style="width:14px;height:14px;background:var(--neuroid-yellow);border:1.5px solid var(--neuroid-ink);flex:none;"></span>
+            <span style="font-size:clamp(1.02rem,1.4vw,1.18rem);line-height:1.4;"><strong style="font-weight:700;">4.3x</strong> average ROAS</span>
+          </div>
+        </div>
+
+        <div data-reveal class="lw-grid">
+          <sc-for list="{{ logos }}" as="logo" hint-placeholder-count="15">
+            <div class="lw-cell">
+              <img class="lw-logo" data-src="{{ logo.src }}" alt="{{ logo.name }}">
+            </div>
+          </sc-for>
+        </div>
+
+        <div data-reveal style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--neuroid-grey);margin:clamp(32px,4vw,48px) 0 16px;">What you get on the call</div>
+        <div data-reveal style="display:flex;flex-direction:column;gap:13px;margin-bottom:clamp(28px,3.4vw,40px);">
+          <div style="display:flex;align-items:flex-start;gap:13px;"><span style="width:14px;height:14px;background:var(--neuroid-yellow);border:1.5px solid var(--neuroid-ink);flex:none;margin-top:4px;"></span><span style="font-size:clamp(1rem,1.3vw,1.12rem);line-height:1.5;">A teardown of your ad account and funnel</span></div>
+          <div style="display:flex;align-items:flex-start;gap:13px;"><span style="width:14px;height:14px;background:var(--neuroid-yellow);border:1.5px solid var(--neuroid-ink);flex:none;margin-top:4px;"></span><span style="font-size:clamp(1rem,1.3vw,1.12rem);line-height:1.5;">Where your spend is leaking - and why</span></div>
+          <div style="display:flex;align-items:flex-start;gap:13px;"><span style="width:14px;height:14px;background:var(--neuroid-yellow);border:1.5px solid var(--neuroid-ink);flex:none;margin-top:4px;"></span><span style="font-size:clamp(1rem,1.3vw,1.12rem);line-height:1.5;">The creative, CRO and retention levers to pull next</span></div>
+          <div style="display:flex;align-items:flex-start;gap:13px;"><span style="width:14px;height:14px;background:var(--neuroid-yellow);border:1.5px solid var(--neuroid-ink);flex:none;margin-top:4px;"></span><span style="font-size:clamp(1rem,1.3vw,1.12rem);line-height:1.5;">A clear 90-day plan, yours to keep either way</span></div>
+        </div>
+      </div>
+
+      <!-- RIGHT: booking (sticky) -->
+      <div class="bk-col">
+        <h2 data-reveal style="font-family:var(--font-sans);font-weight:700;letter-spacing:-0.035em;line-height:1.0;font-size:clamp(1.7rem,3vw,2.5rem);margin:0 0 22px;">Book your Growth Audit<span style="display:inline-block;width:0.16em;height:0.16em;background:var(--neuroid-red);vertical-align:baseline;margin-left:0.04em;"></span></h2>
+        <div data-reveal style="border:2px solid var(--neuroid-ink);border-radius:6px;box-shadow:12px 12px 0 0 var(--neuroid-yellow);background:var(--neuroid-paper);overflow:hidden;">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;padding:13px 16px;border-bottom:1.5px solid var(--neuroid-ink);font-family:var(--font-mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;">
+            <span>Pick a time</span>
+            <span style="color:var(--neuroid-grey);">Neuroid - Growth Audit</span>
+          </div>
+          <div ref="{{ calRef }}" class="calendly-inline-widget cal-widget"></div>
+          <a href="https://calendly.com/lakshsehgal/bookacall" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:8px;padding:13px 16px;border-top:1.5px solid var(--neuroid-ink);font-family:var(--font-mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;color:var(--neuroid-ink);background:var(--neuroid-yellow);font-weight:700;">Calendar not loading? Open scheduler &rarr;</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS (full width) -->
+  <section style="padding:0 clamp(18px,4vw,48px) clamp(48px,6vw,80px);">
+    <div class="lt-tg" style="max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,2vw,24px);">
+      <div data-reveal style="display:flex;flex-direction:column;background:var(--neuroid-ink);color:#fff;border:1.5px solid var(--neuroid-ink);padding:clamp(24px,3vw,34px);">
+        <div style="color:var(--neuroid-yellow);font-size:15px;letter-spacing:0.12em;margin-bottom:14px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div style="font-family:var(--font-sans);font-weight:700;font-size:15px;">Pulkit Tiwari</div>
+        <div style="font-family:var(--font-serif);font-style:italic;font-size:13px;color:var(--neuroid-grey);margin-top:2px;">CMO</div>
+        <p style="font-family:var(--font-serif);font-style:italic;font-size:clamp(1rem,1.35vw,1.16rem);line-height:1.55;margin:18px 0 0;color:#fff;flex:1 1 auto;">"They combine strong technical capability with a deep understanding of the D2C ecosystem - translating data into clear, actionable strategy. Their ownership mindset makes them a trusted extension of our team."</p>
+        <div style="border-top:1px solid rgba(255,255,255,0.18);padding-top:14px;margin-top:20px;">
+          <div style="font-family:var(--font-sans);font-weight:700;font-size:14px;">Wooden Street</div>
+        </div>
+      </div>
+      <div data-reveal style="display:flex;flex-direction:column;background:var(--neuroid-ink);color:#fff;border:1.5px solid var(--neuroid-ink);padding:clamp(24px,3vw,34px);">
+        <div style="color:var(--neuroid-yellow);font-size:15px;letter-spacing:0.12em;margin-bottom:14px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div style="font-family:var(--font-sans);font-weight:700;font-size:15px;">Varshikha Jyoti</div>
+        <div style="font-family:var(--font-serif);font-style:italic;font-size:13px;color:var(--neuroid-grey);margin-top:2px;">Founder</div>
+        <p style="font-family:var(--font-serif);font-style:italic;font-size:clamp(1rem,1.35vw,1.16rem);line-height:1.55;margin:18px 0 0;color:#fff;flex:1 1 auto;">"They have been a great growth partner for us - proactive, data-led and genuinely invested in the brand. The team moves fast, tests relentlessly and treats our budget like their own."</p>
+        <div style="border-top:1px solid rgba(255,255,255,0.18);padding-top:14px;margin-top:20px;">
+          <div style="font-family:var(--font-sans);font-weight:700;font-size:14px;">Shyr Beauty</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="background:var(--neuroid-ink);color:var(--neuroid-paper);padding:clamp(48px,7vw,80px) clamp(18px,4vw,48px) 36px;">
+    <div style="max-width:1100px;margin:0 auto;">
+      <div style="display:flex;flex-wrap:wrap;gap:40px;justify-content:space-between;">
+        <div style="flex:1 1 320px;min-width:260px;">
+          <img src="assets/brand/neuroid-logo.svg" alt="Neuroid" style="height:30px;margin-bottom:20px;">
+          <p style="font-size:1.05rem;line-height:1.5;max-width:340px;margin:0;color:var(--neuroid-grey-dark);">An integrated growth &amp; creative studio for <span style="font-family:var(--font-serif);font-style:italic;color:#fff;">D2C brands</span>.</p>
+          <div class="nrd-pixels" style="margin-top:24px;"><i></i><i></i><i></i></div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:48px;">
+          <div>
+            <div style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--neuroid-grey-dark);margin-bottom:16px;">Company</div>
+            <a href="Neuroid Home.dc.html#work" style="display:block;text-decoration:none;color:#fff;font-size:14px;padding:6px 0;">Work</a>
+            <a href="Neuroid Home.dc.html#about" style="display:block;text-decoration:none;color:#fff;font-size:14px;padding:6px 0;">About</a>
+            <a href="Neuroid Home.dc.html#services" style="display:block;text-decoration:none;color:#fff;font-size:14px;padding:6px 0;">Services</a>
+          </div>
+          <div>
+            <div style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--neuroid-grey-dark);margin-bottom:16px;">Connect</div>
+            <a href="https://instagram.com" style="display:block;text-decoration:none;color:#fff;font-size:14px;padding:6px 0;">Instagram</a>
+            <a href="https://linkedin.com" style="display:block;text-decoration:none;color:#fff;font-size:14px;padding:6px 0;">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:48px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.16);display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between;font-family:var(--font-mono);font-size:11.5px;letter-spacing:0.08em;text-transform:uppercase;color:var(--neuroid-grey-dark);">
+        <span>New Delhi, India · hello@neuroidmedia.com</span>
+        <span>www.neuroidmedia.com</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    this._hydrateLogos();
+    const root = this._root;
+    const els = root ? Array.from(root.querySelectorAll('[data-reveal]')) : [];
+    if ('IntersectionObserver' in window) {
+      this._io = new IntersectionObserver((es) => {
+        es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); this._io.unobserve(e.target); } });
+      }, { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
+      els.forEach((e) => this._io.observe(e));
+      this._safety = setTimeout(() => els.forEach((e) => e.classList.add('in')), 2200);
+    } else {
+      els.forEach((e) => e.classList.add('in'));
+    }
+    const init = () => {
+      if (window.Calendly && this._cal && !this._cal.dataset.init) {
+        this._cal.dataset.init = '1';
+        window.Calendly.initInlineWidget({ url: this._calUrl, parentElement: this._cal });
+        return true;
+      }
+      return !!(this._cal && this._cal.dataset.init);
+    };
+    // Inject Calendly assets dynamically (kept out of <helmet> so the design
+    // bundles cleanly; declared via ext-resource-dependency meta tags).
+    if (!document.querySelector('link[data-calendly]')) {
+      const cl = document.createElement('link');
+      cl.rel = 'stylesheet'; cl.href = 'https://assets.calendly.com/assets/external/widget.css';
+      cl.setAttribute('data-calendly', '1');
+      document.head.appendChild(cl);
+    }
+    if (!window.Calendly && !document.querySelector('script[data-calendly]')) {
+      const s = document.createElement('script');
+      s.src = 'https://assets.calendly.com/assets/external/widget.js';
+      s.async = true; s.setAttribute('data-calendly', '1');
+      document.head.appendChild(s);
+    }
+    if (!init()) { let n = 0; this._ct = setInterval(() => { if (init() || ++n > 80) clearInterval(this._ct); }, 150); }
+    this._onCalMsg = (e) => {
+      if (e.data && typeof e.data === 'object' && e.data.event === 'calendly.event_scheduled') {
+        window.location.href = 'Booking Confirmed.dc.html';
+      }
+    };
+    window.addEventListener('message', this._onCalMsg);
+  }
+  componentDidUpdate() { this._hydrateLogos(); }
+  componentWillUnmount() {
+    if (this._io) this._io.disconnect();
+    clearTimeout(this._safety);
+    clearInterval(this._ct);
+    window.removeEventListener('message', this._onCalMsg);
+  }
+  _hydrateLogos() {
+    const root = this._root;
+    if (!root) return;
+    Array.from(root.querySelectorAll('img.lw-logo[data-src]')).forEach((im) => {
+      const s = im.getAttribute('data-src');
+      if (s && s.indexOf('{{') < 0 && im.getAttribute('src') !== s) im.setAttribute('src', s);
+    });
+  }
+  renderVals() {
+    this._calUrl = 'https://calendly.com/lakshsehgal/bookacall?hide_gdpr_banner=1&primary_color=020202';
+    const list = [
+      ['Lifelong', 'lifelong.png'], ['Wooden Street', 'woodenstreet.png'], ['Silverfied', 'silverfied.png'], ['Jewelsmars', 'jewelsmars.png'], ['Superbottoms', 'superbottoms.avif'],
+      ['Evara', 'evara.svg'], ['Kisah', 'kisah.avif'], ['DeepImpact', 'deepimpact.png'], ['Chowkhat', 'chowkhat.avif'], ['Nourish You', 'nourishyou.png'],
+      ['Gataca', 'gataca.png'], ['Haus & Kinder', 'hausandkinder.avif'], ['Supersox', 'supersox.png'], ['Yoho', 'yoho.png'], ['Shyr', 'shyr.avif']
+    ];
+    const logos = list.map((l) => ({ name: l[0], src: (window.__rsrc ? window.__rsrc('assets/logos/' + l[1]) : 'assets/logos/' + l[1]) }));
+    return {
+      rootRef: (el) => { this._root = el; },
+      calRef: (el) => { this._cal = el; },
+      logos: logos,
+      logosLoop: logos.concat(logos)
+    };
+  }
+}
+</script>
+</body>
+</html>

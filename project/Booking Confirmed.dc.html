@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<template id="__bundler_thumbnail">
+  <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <rect width="100" height="100" fill="#F4F1EA"></rect>
+    <rect x="38" y="40" width="24" height="16" fill="#FEEF24"></rect>
+    <text x="50" y="53" font-family="Arial, sans-serif" font-weight="800" font-size="13" fill="#0C0C0C" text-anchor="middle">N</text>
+    <rect x="59" y="52" width="3" height="3" fill="#FF2600"></rect>
+  </svg>
+</template>
+<helmet>
+<link rel="stylesheet" href="_ds/neuroid-2-0-visual-identity-257bac54-27b9-4b29-ae4f-f60a1c65bb4f/styles.css">
+<style>
+  *{box-sizing:border-box;}
+  body{margin:0;background:#F4F1EA;}
+  [data-reveal]{opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1);}
+  [data-reveal].in{opacity:1;transform:none;}
+  [data-reveal][data-d1]{transition-delay:.1s;}
+  [data-reveal][data-d2]{transition-delay:.2s;}
+  [data-reveal][data-d3]{transition-delay:.3s;}
+  [data-reveal][data-d4]{transition-delay:.4s;}
+  @keyframes bc-pop{0%{transform:scale(0.4);opacity:0;}60%{transform:scale(1.12);}100%{transform:scale(1);opacity:1;}}
+  @keyframes bc-draw{to{stroke-dashoffset:0;}}
+  @media (prefers-reduced-motion:reduce){[data-reveal]{opacity:1 !important;transform:none !important;}.bc-check circle,.bc-check path{animation:none !important;stroke-dashoffset:0 !important;}}
+</style>
+</helmet>
+
+<div ref="{{ rootRef }}" style="font-family:var(--font-sans);background:#F4F1EA;color:var(--neuroid-ink);min-height:100vh;display:flex;flex-direction:column;">
+
+  <!-- NAV -->
+  <header style="background:rgba(244,241,234,0.92);border-bottom:1.5px solid var(--neuroid-ink);">
+    <div style="max-width:1200px;margin:0 auto;padding:14px clamp(18px,4vw,48px);display:flex;align-items:center;justify-content:space-between;gap:20px;">
+      <a href="Neuroid Home.dc.html" style="display:flex;align-items:center;flex:none;text-decoration:none;"><img src="assets/brand/neuroid-logo-black.svg" alt="Neuroid" style="height:34px;width:auto;display:block;"></a>
+      <a href="Neuroid Home.dc.html" style="display:inline-flex;align-items:center;gap:8px;text-decoration:none;background:transparent;color:var(--neuroid-ink);border:1.5px solid var(--neuroid-ink);padding:10px 16px;font-family:var(--font-sans);font-weight:700;font-size:13px;letter-spacing:-0.01em;white-space:nowrap;transition:background .15s var(--ease-snap),color .15s var(--ease-snap);" style-hover="background:var(--neuroid-ink);color:var(--neuroid-paper);">Back to home</a>
+    </div>
+  </header>
+
+  <!-- SUCCESS -->
+  <main style="flex:1 1 auto;display:flex;align-items:center;justify-content:center;padding:clamp(40px,7vw,96px) clamp(18px,4vw,48px);">
+    <div style="max-width:680px;width:100%;">
+
+      <div data-reveal style="margin-bottom:clamp(28px,4vw,40px);">
+        <svg class="bc-check" width="76" height="76" viewBox="0 0 76 76" fill="none" style="display:block;">
+          <rect x="1.5" y="1.5" width="73" height="73" fill="var(--neuroid-yellow)" stroke="var(--neuroid-ink)" stroke-width="2"></rect>
+          <path d="M20 39.5 L33 52 L57 25" stroke="var(--neuroid-ink)" stroke-width="5" stroke-linecap="square" stroke-linejoin="miter" fill="none" style="stroke-dasharray:80;stroke-dashoffset:80;animation:bc-draw .5s cubic-bezier(.65,0,.35,1) .45s forwards;"></path>
+        </svg>
+      </div>
+
+      <div data-reveal data-d1 style="display:flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:12px;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:18px;color:var(--neuroid-grey-dark);">
+        <span style="width:9px;height:9px;background:var(--neuroid-red);display:inline-block;"></span>
+        <span>You're booked</span>
+      </div>
+
+      <h1 data-reveal data-d2 style="font-family:var(--font-sans);font-weight:700;letter-spacing:-0.035em;line-height:1.0;font-size:clamp(2.6rem,6.2vw,4.6rem);margin:0 0 22px;text-wrap:balance;">
+        Thank you for booking a call. <span style="font-family:var(--font-serif);font-style:italic;font-weight:400;">See you on the other side.</span>
+      </h1>
+
+      <p data-reveal data-d3 style="font-size:clamp(1.05rem,1.7vw,1.3rem);line-height:1.5;max-width:560px;margin:0 0 32px;color:var(--neuroid-ink);">
+        A calendar invite is on its way to your inbox. Come with your numbers - we'll come with the teardown.
+      </p>
+
+      <div data-reveal data-d4 style="display:flex;align-items:flex-start;gap:12px;border:1.5px solid var(--neuroid-ink);background:#fff;padding:clamp(16px,2.2vw,20px) clamp(18px,2.4vw,24px);max-width:580px;">
+        <span style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;background:var(--neuroid-ink);color:var(--neuroid-paper);padding:4px 8px;flex:none;margin-top:2px;">Note</span>
+        <p style="margin:0;font-family:var(--font-mono);font-size:12.5px;line-height:1.6;letter-spacing:0.01em;color:var(--neuroid-grey-dark);">If your brand is currently spending under <strong style="color:var(--neuroid-ink);">&#8377;2L / month</strong> on ads, the call may be automatically cancelled - we focus on brands ready to scale.</p>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer style="background:var(--neuroid-ink);color:var(--neuroid-paper);">
+    <div style="max-width:1200px;margin:0 auto;padding:28px clamp(18px,4vw,48px);display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between;font-family:var(--font-mono);font-size:11.5px;letter-spacing:0.08em;text-transform:uppercase;color:var(--neuroid-grey-dark);">
+      <span>New Delhi, India &middot; hello@neuroidmedia.com</span>
+      <span>www.neuroidmedia.com</span>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    const root = this._root;
+    const els = root ? Array.from(root.querySelectorAll('[data-reveal]')) : [];
+    requestAnimationFrame(() => els.forEach((e) => e.classList.add('in')));
+  }
+  renderVals() {
+    return { rootRef: (el) => { this._root = el; } };
+  }
+}
+</script>
+</body>
+</html>
