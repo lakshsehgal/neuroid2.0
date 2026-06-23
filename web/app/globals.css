@@ -444,7 +444,18 @@ a.nrd-btnlink:hover button{transform:translate(-2px,-2px) !important;box-shadow:
 
 /* ---- fan-out (Why Neuroid) ---- */
 .nrd-fanrow{flex-wrap:nowrap;}
-@media (max-width:600px){.nrd-fanrow{flex-wrap:wrap;}.nrd-fansvg{display:none;}.nrd-fancol{flex:1 1 100% !important;}}
+.nrd-fan-wire{display:none;}
+@media (max-width:600px){
+  .nrd-fanrow{flex-wrap:wrap;}
+  .nrd-fansvg{display:none;}            /* horizontal wiring can't map to a stacked layout */
+  .nrd-fancol{flex:1 1 100% !important;}
+  /* show the vertical animated connectors between the stacked blocks instead */
+  .nrd-fan-wire{display:flex;flex:1 1 100%;justify-content:center;margin:-2px 0;}
+  .nrd-fan-wire svg{height:48px;}
+}
+@media (max-width:600px) and (prefers-reduced-motion:reduce){
+  .nrd-fan-wire svg line{animation:none !important;}
+}
 
 /* ---- FAQ grid ---- */
 .nrd-faq-grid{display:grid;grid-template-columns:minmax(0,0.82fr) minmax(0,1.18fr);gap:clamp(36px,5vw,84px);align-items:start;}

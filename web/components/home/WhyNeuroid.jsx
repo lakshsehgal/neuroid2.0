@@ -66,6 +66,20 @@ function Partial() {
 }
 function Mark({ v, pop }) { return v === 'yes' ? <Check pop={pop} /> : v === 'partial' ? <Partial /> : <Cross />; }
 
+// Vertical animated connector shown only when the engine diagram stacks on
+// phones (the horizontal .nrd-fansvg wiring is hidden there). Reuses the same
+// dash-flow keyframe so the "inputs feeding the engine" motion stays visible.
+function FanWire() {
+  return (
+    <div className="nrd-fan-wire" aria-hidden="true">
+      <svg width="22" height="52" viewBox="0 0 22 52" preserveAspectRatio="none" style={{ overflow: 'visible' }}>
+        <line x1="11" y1="0" x2="11" y2="52" stroke="rgba(12,12,12,0.16)" strokeWidth="1.4" />
+        <line x1="11" y1="0" x2="11" y2="52" stroke="var(--neuroid-yellow)" strokeWidth="3" strokeLinecap="round" strokeDasharray="5 17" style={{ animation: 'nrd-dashflow2 2.6s linear infinite' }} />
+      </svg>
+    </div>
+  );
+}
+
 function ComparisonMatrix() {
   const gridRef = useRef(null);
   const [inView, setInView] = useState(false);
@@ -181,6 +195,8 @@ export default function WhyNeuroid() {
               </div>
             </div>
 
+            <FanWire />
+
             <div style={{ flex: '0 0 auto', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px' }}>
               <div style={{ fontFamily: 'var(--font-mono)', fontSize: '18px', letterSpacing: '0.2em', color: 'var(--neuroid-ink)', lineHeight: 1, animation: 'nrd-spark 2.6s ease-in-out infinite' }}>→</div>
               <div style={{ width: 'clamp(96px,11vw,128px)', height: 'clamp(96px,11vw,128px)', background: 'var(--neuroid-ink)', border: '1.5px solid var(--neuroid-ink)', boxShadow: '6px 6px 0 0 var(--neuroid-yellow)', display: 'flex', alignItems: 'center', justifyContent: 'center', animation: 'nrd-breathe 1.9s ease-in-out infinite' }}>
@@ -188,6 +204,8 @@ export default function WhyNeuroid() {
               </div>
               <div style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--neuroid-grey)' }}>The loop</div>
             </div>
+
+            <FanWire />
 
             <div className="nrd-fancol" style={{ flex: '1 1 0', minWidth: 0 }}>
               <div style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--neuroid-grey)', marginBottom: '3px', textAlign: 'right' }}>What you get</div>
