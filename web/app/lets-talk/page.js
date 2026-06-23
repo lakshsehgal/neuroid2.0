@@ -28,7 +28,7 @@ export default function LetsTalkPage() {
   useReveal(rootRef);
 
   useEffect(() => {
-    const url = 'https://calendly.com/lakshsehgal/bookacall?hide_gdpr_banner=1&primary_color=020202';
+    const url = 'https://calendly.com/lakshsehgal/bookacall?hide_gdpr_banner=1';
     if (!document.querySelector('link[data-calendly]')) {
       const l = document.createElement('link');
       l.rel = 'stylesheet';
@@ -134,7 +134,7 @@ export default function LetsTalkPage() {
                 <span>Pick a time</span>
                 <span style={{ color: 'var(--neuroid-grey)' }}>Neuroid - Growth Audit</span>
               </div>
-              <div ref={calRef} className="calendly-inline-widget cal-widget"></div>
+              <div ref={calRef} className="cal-widget"></div>
               <a href="https://calendly.com/lakshsehgal/bookacall" target="_blank" rel="noopener" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', padding: '13px 16px', borderTop: '1.5px solid var(--neuroid-ink)', fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '0.12em', textTransform: 'uppercase', textDecoration: 'none', color: 'var(--neuroid-ink)', background: 'var(--neuroid-yellow)', fontWeight: 700 }}>Calendar not loading? Open scheduler &rarr;</a>
             </div>
           </div>
