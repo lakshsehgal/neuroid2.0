@@ -18,7 +18,7 @@ function LoopNode({ num, title, body }) {
 }
 
 const NODES = [
-  ['01', 'Ship', 'Put creative + media live, fast.'],
+  ['01', 'Ship', 'Put creative + performance live, fast.'],
   ['02', 'Read the signal', 'Signal from noise in the data.'],
   ['03', 'Sharpen', 'Cut what fails, back the winners.'],
   ['04', 'Scale', 'Compound winners, profitably.'],
@@ -78,7 +78,7 @@ export function LoopDesktop() {
 
 export function LoopVertical() {
   const steps = [
-    ['01', 'Ship', 'Put creative and media live, fast.'],
+    ['01', 'Ship', 'Put creative + performance live, fast.'],
     ['02', 'Read the signal', 'Separate signal from noise in the data.'],
     ['03', 'Sharpen', 'Cut what fails, double down on what works.'],
     ['04', 'Scale', 'Compound the winners profitably.'],

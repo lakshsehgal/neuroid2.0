@@ -41,7 +41,7 @@ export const metadata = {
   openGraph: {
     title: 'Neuroid — Integrated Growth & Creative Studio',
     description:
-      'The creative people feel and the media that scales it — designed together, run together, by one team that acts like yours.',
+      'Scroll-stopping creatives and the performance marketing that scales it — built by one team, run on one loop, so your ROAS and your brand grow together.',
     type: 'website',
   },
 };
