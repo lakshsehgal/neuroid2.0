@@ -13,10 +13,12 @@ function DropdownItem({ children }) {
   );
 }
 
-export default function Nav({ desktop }) {
+// Desktop vs. mobile is decided by CSS (.nrd-nav-desktop / .nrd-nav-mobile),
+// not JS width — so the correct nav renders on the very first paint (SSR-safe,
+// no flash of the wrong layout on phones).
+export default function Nav() {
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileMenu, setMobileMenu] = useState(false);
-  const mobileOpen = mobileMenu && !desktop;
 
   return (
     <header style={{ position: 'sticky', top: 0, zIndex: 50, background: 'rgba(244,241,234,0.92)', backdropFilter: 'blur(8px)', borderBottom: '1.5px solid var(--neuroid-ink)' }}>
@@ -26,45 +28,38 @@ export default function Nav({ desktop }) {
         </a>
 
         <nav style={{ display: 'flex', alignItems: 'center', gap: '8px', fontFamily: 'var(--font-sans)', fontWeight: 600, fontSize: '14px' }}>
-          {desktop && (
-            <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-              <a href="/portfolio" style={linkStyle}>Work</a>
-              <div onMouseEnter={() => setServicesOpen(true)} onMouseLeave={() => setServicesOpen(false)} style={{ position: 'relative' }}>
-                <a href="/#services" onClick={() => setServicesOpen(false)} style={{ ...linkStyle, display: 'inline-flex', alignItems: 'center', gap: '6px', cursor: 'pointer' }}>Services
-                  <svg width="11" height="11" viewBox="0 0 12 12" fill="none" style={{ transition: 'transform .2s var(--ease-snap)', transform: servicesOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}><path d="M2.5 4.5L6 8l3.5-3.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="square" /></svg>
-                </a>
-                {servicesOpen && (
-                  <div style={{ position: 'absolute', top: 'calc(100% + 8px)', left: 0, width: '280px', background: 'var(--neuroid-paper)', border: '1.5px solid var(--neuroid-ink)', boxShadow: '6px 6px 0 0 var(--neuroid-ink)', padding: '6px' }}>
-                    <DropdownItem>Performance Marketing</DropdownItem>
-                    <DropdownItem>Performance Creatives &amp; UGC</DropdownItem>
-                    <DropdownItem>Socials, Campaigns &amp; IPs</DropdownItem>
-                    <DropdownItem>CRO &amp; Retention</DropdownItem>
-                  </div>
-                )}
-              </div>
-              <a href="/#about" style={linkStyle}>About</a>
-            </div>
-          )}
-
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-            {desktop && (
-              <a href="/lets-talk" className="nrd-btnlink" style={{ textDecoration: 'none' }}>
-                <Button variant="primary" block size="sm">Book a Growth Audit</Button>
+          <div className="nrd-nav-desktop" style={{ alignItems: 'center', gap: '6px' }}>
+            <a href="/portfolio" style={linkStyle}>Work</a>
+            <div onMouseEnter={() => setServicesOpen(true)} onMouseLeave={() => setServicesOpen(false)} style={{ position: 'relative' }}>
+              <a href="/#services" onClick={() => setServicesOpen(false)} style={{ ...linkStyle, display: 'inline-flex', alignItems: 'center', gap: '6px', cursor: 'pointer' }}>Services
+                <svg width="11" height="11" viewBox="0 0 12 12" fill="none" style={{ transition: 'transform .2s var(--ease-snap)', transform: servicesOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}><path d="M2.5 4.5L6 8l3.5-3.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="square" /></svg>
               </a>
-            )}
-            {!desktop && (
-              <button onClick={() => setMobileMenu((v) => !v)} aria-label="Menu" style={{ background: 'none', border: '1.5px solid var(--neuroid-ink)', width: '42px', height: '38px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '4px', cursor: 'pointer', padding: 0 }}>
-                <span style={{ width: '18px', height: '2px', background: 'var(--neuroid-ink)', display: 'block' }} />
-                <span style={{ width: '18px', height: '2px', background: 'var(--neuroid-ink)', display: 'block' }} />
-                <span style={{ width: '18px', height: '2px', background: 'var(--neuroid-ink)', display: 'block' }} />
-              </button>
-            )}
+              {servicesOpen && (
+                <div style={{ position: 'absolute', top: 'calc(100% + 8px)', left: 0, width: '280px', background: 'var(--neuroid-paper)', border: '1.5px solid var(--neuroid-ink)', boxShadow: '6px 6px 0 0 var(--neuroid-ink)', padding: '6px' }}>
+                  <DropdownItem>Performance Marketing</DropdownItem>
+                  <DropdownItem>Performance Creatives &amp; UGC</DropdownItem>
+                  <DropdownItem>Socials, Campaigns &amp; IPs</DropdownItem>
+                  <DropdownItem>CRO &amp; Retention</DropdownItem>
+                </div>
+              )}
+            </div>
+            <a href="/#about" style={linkStyle}>About</a>
+            <a href="/lets-talk" className="nrd-btnlink" style={{ textDecoration: 'none', marginLeft: '4px' }}>
+              <Button variant="primary" block size="sm">Book a Growth Audit</Button>
+            </a>
           </div>
+
+          <button className="nrd-nav-mobile" onClick={() => setMobileMenu((v) => !v)} aria-label="Menu" aria-expanded={mobileMenu}
+            style={{ background: 'none', border: '1.5px solid var(--neuroid-ink)', width: '44px', height: '40px', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '4px', cursor: 'pointer', padding: 0 }}>
+            <span style={{ width: '18px', height: '2px', background: 'var(--neuroid-ink)', display: 'block' }} />
+            <span style={{ width: '18px', height: '2px', background: 'var(--neuroid-ink)', display: 'block' }} />
+            <span style={{ width: '18px', height: '2px', background: 'var(--neuroid-ink)', display: 'block' }} />
+          </button>
         </nav>
       </div>
 
-      {mobileOpen && (
-        <div style={{ borderTop: '1.5px solid var(--neuroid-ink)', background: 'var(--neuroid-paper)', padding: '8px clamp(18px,4vw,56px) 18px' }}>
+      {mobileMenu && (
+        <div className="nrd-nav-mobile-panel" style={{ borderTop: '1.5px solid var(--neuroid-ink)', background: 'var(--neuroid-paper)', padding: '8px clamp(18px,4vw,56px) 18px' }}>
           <a href="/portfolio" onClick={() => setMobileMenu(false)} style={{ display: 'block', textDecoration: 'none', color: 'var(--neuroid-ink)', padding: '12px 0', fontWeight: 600, borderBottom: '1px solid rgba(12,12,12,0.1)' }}>Work</a>
           <a href="/#services" onClick={() => setMobileMenu(false)} style={{ display: 'block', textDecoration: 'none', color: 'var(--neuroid-ink)', padding: '12px 0', fontWeight: 600, borderBottom: '1px solid rgba(12,12,12,0.1)' }}>Services</a>
           <a href="/#about" onClick={() => setMobileMenu(false)} style={{ display: 'block', textDecoration: 'none', color: 'var(--neuroid-ink)', padding: '12px 0', fontWeight: 600, borderBottom: '1px solid rgba(12,12,12,0.1)' }}>About</a>

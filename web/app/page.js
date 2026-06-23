@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { useReveal } from '@/lib/useReveal';
 import Button from '@/components/Button';
 import Nav from '@/components/home/Nav';
@@ -53,20 +53,11 @@ const YEL_RIBBON = [['200+', 'creatives / month'], ['94%', 'client retention'], 
 
 export default function Home() {
   const rootRef = useRef(null);
-  const [w, setW] = useState(1280);
   useReveal(rootRef, { stagger: true });
-  useEffect(() => {
-    const onResize = () => setW(window.innerWidth);
-    window.addEventListener('resize', onResize);
-    onResize();
-    return () => window.removeEventListener('resize', onResize);
-  }, []);
-  const desktopNav = w >= 920;
-  const loopDesktop = w >= 860;
 
   return (
     <div ref={rootRef} style={{ fontFamily: 'var(--font-sans)', background: '#F4F1EA', color: 'var(--neuroid-ink)', overflowX: 'hidden' }}>
-      <Nav desktop={desktopNav} />
+      <Nav />
 
       {/* HERO */}
       <section id="top" style={{ position: 'relative', minHeight: '94vh', background: 'radial-gradient(circle at center, rgba(12,12,12,0.07) 1.3px, transparent 1.9px) 0 0 / 22px 22px, #F4F1EA', color: 'var(--neuroid-ink)', display: 'flex', alignItems: 'center', padding: 'clamp(40px,5vw,72px) clamp(18px,4vw,56px)', overflow: 'hidden' }}>
@@ -141,7 +132,8 @@ export default function Home() {
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', fontFamily: 'var(--font-mono)', fontSize: '12px', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--neuroid-yellow)', marginBottom: '22px' }}><span style={eyebrowSq} /><span>The Neuroid Loop</span></div>
             <h2 style={{ fontFamily: 'var(--font-sans)', fontWeight: 700, letterSpacing: '-0.035em', lineHeight: 1.04, fontSize: 'clamp(1.9rem,4.2vw,3.4rem)', margin: '0 auto', maxWidth: '880px', color: '#fff', textWrap: 'balance' }}>Most agencies build a wall between creative and performance. We built a <span className="nrd-highlight">loop</span><span style={redSquare} /></h2>
           </div>
-          {loopDesktop ? <LoopDesktop /> : <LoopVertical />}
+          <div className="nrd-loop-desktop"><LoopDesktop /></div>
+          <div className="nrd-loop-mobile"><LoopVertical /></div>
         </div>
       </section>
 

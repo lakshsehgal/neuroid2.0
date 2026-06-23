@@ -5,31 +5,10 @@
    Claude Design handoff. Fonts served from /public/fonts.
    ============================================================ */
 
-@font-face {
-  font-family: "FH Lecturis";
-  src: url("/fonts/FHLecturis-Bold.otf") format("opentype");
-  font-weight: 700; font-style: normal; font-display: swap;
-}
-@font-face {
-  font-family: "DM Sans";
-  src: url("/fonts/DMSans-Variable.ttf") format("truetype");
-  font-weight: 100 1000; font-stretch: 75% 125%; font-style: normal; font-display: swap;
-}
-@font-face {
-  font-family: "DM Sans";
-  src: url("/fonts/DMSans-Italic-Variable.ttf") format("truetype");
-  font-weight: 100 1000; font-stretch: 75% 125%; font-style: italic; font-display: swap;
-}
-@font-face {
-  font-family: "PP Editorial New";
-  src: url("/fonts/PPEditorialNew-Italic.otf") format("opentype");
-  font-weight: 400; font-style: normal; font-display: swap;
-}
-@font-face {
-  font-family: "PP Editorial New";
-  src: url("/fonts/PPEditorialNew-Italic.otf") format("opentype");
-  font-weight: 400; font-style: italic; font-display: swap;
-}
+/* Fonts are loaded & preloaded by next/font/local in app/layout.js, which
+   exposes them as the CSS variables referenced below (--font-dm-sans,
+   --font-pp-editorial, --font-fh-lecturis). next/font preloads + applies a
+   size-adjust fallback so there is no flash-of-unstyled-text / layout shift. */
 
 /* ---- tokens/colors.css ---- */
 /* ============================================================
@@ -111,9 +90,9 @@
    ============================================================ */
 :root {
   /* ---- Families ---- */
-  --font-display: "FH Lecturis"; /* display font — never pair with fallbacks */
-  --font-sans:    "DM Sans", system-ui, -apple-system, Segoe UI, sans-serif;
-  --font-serif:   "PP Editorial New", Georgia, "Times New Roman", serif;
+  --font-display: var(--font-fh-lecturis), "DM Sans", sans-serif; /* display font */
+  --font-sans:    var(--font-dm-sans), system-ui, -apple-system, Segoe UI, sans-serif;
+  --font-serif:   var(--font-pp-editorial), Georgia, "Times New Roman", serif;
   --font-mono:    ui-monospace, "SF Mono", Menlo, Consolas, monospace;
 
   /* ---- Weights (DM Sans variable) ---- */
@@ -555,9 +534,10 @@ a.nrd-btnlink:hover button{transform:translate(-2px,-2px) !important;box-shadow:
   .nrd-vcard:hover .nrd-vcard__img,.nrd-vcard:focus-visible .nrd-vcard__img{transform:none;}
 }
 
-/* ---- service figure cards: hide Stage playback bar, transparent canvas frame ---- */
+/* ---- service figure cards: transparent canvas frame so the white scene fills ----
+   (No playback bar is rendered for these — showBar={false} — so we must NOT
+   blanket-hide a :last-child here; that previously hid the scene itself.) */
 .svc-fig-stage > div{background:transparent !important;}
-.svc-fig-stage > div > :last-child{display:none !important;}
 
 /* ---- Lets Talk ---- */
 .lt-main{display:grid;grid-template-columns:1.02fr 0.98fr;gap:clamp(36px,5vw,72px);align-items:start;}
@@ -585,3 +565,43 @@ a.nrd-btnlink:hover button{transform:translate(-2px,-2px) !important;box-shadow:
 
 /* ---- Booking Confirmed reduced motion ---- */
 @media (prefers-reduced-motion:reduce){.bc-check circle,.bc-check path{animation:none !important;stroke-dashoffset:0 !important;}}
+
+/* ============================================================
+   SSR-safe responsive switches (replace JS innerWidth gating so
+   the correct layout renders on the first paint — no flash on phones)
+   ============================================================ */
+.nrd-nav-desktop{display:flex;}
+.nrd-nav-mobile{display:none;}
+.nrd-nav-mobile-panel{display:block;}
+@media (max-width:919px){
+  .nrd-nav-desktop{display:none !important;}
+  .nrd-nav-mobile{display:flex !important;}
+}
+@media (min-width:920px){
+  .nrd-nav-mobile-panel{display:none !important;}
+}
+
+.nrd-loop-desktop{display:block;}
+.nrd-loop-mobile{display:none;}
+@media (max-width:859px){
+  .nrd-loop-desktop{display:none !important;}
+  .nrd-loop-mobile{display:block !important;}
+}
+
+/* ============================================================
+   Phone polish — tighten oversized rhythm, guarantee no h-scroll,
+   make tap targets and the comparison matrix behave on small screens.
+   ============================================================ */
+@media (max-width:640px){
+  html,body{overflow-x:hidden;}
+  /* the comparison matrix scrolls horizontally on its own host; hint it */
+  .nrd-c2-host{-webkit-overflow-scrolling:touch;scroll-snap-type:x proximity;}
+  /* tighten the very tall hero on short phones so the fold isn't mostly gallery */
+  .nrd-hero{gap:28px !important;}
+}
+@media (max-width:430px){
+  .nrd-hero-art{height:230px !important;}
+  /* keep brand-partner chips from overflowing the row */
+  .nrd-c2{min-width:620px;}
+}
+

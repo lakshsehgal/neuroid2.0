@@ -155,34 +155,26 @@ export default function PortfolioPage() {
           </a>
 
           <nav style={{ display: 'flex', alignItems: 'center', gap: '8px', fontFamily: 'var(--font-sans)', fontWeight: 600, fontSize: '14px' }}>
-            {desktopNav && (
-              <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                <a href="/" style={navLink}>Home</a>
-                <a href="#work" style={{ ...navLink, borderBottom: '2px solid var(--neuroid-ink)' }}>Work</a>
-                <a href="/#services" style={navLink}>Services</a>
-                <a href="/#about" style={navLink}>About</a>
-              </div>
-            )}
-
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-              {desktopNav && (
-                <a href="/lets-talk" className="nrd-btnlink" style={{ textDecoration: 'none' }}>
-                  <Button variant="primary" block size="sm">Book a Growth Audit</Button>
-                </a>
-              )}
-              {!desktopNav && (
-                <button onClick={() => setMobileMenu((m) => !m)} aria-label="Menu" style={{ background: 'none', border: '1.5px solid var(--neuroid-ink)', width: '42px', height: '38px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '4px', cursor: 'pointer', padding: 0 }}>
-                  <span style={{ width: '18px', height: '2px', background: 'var(--neuroid-ink)', display: 'block' }} />
-                  <span style={{ width: '18px', height: '2px', background: 'var(--neuroid-ink)', display: 'block' }} />
-                  <span style={{ width: '18px', height: '2px', background: 'var(--neuroid-ink)', display: 'block' }} />
-                </button>
-              )}
+            <div className="nrd-nav-desktop" style={{ alignItems: 'center', gap: '6px' }}>
+              <a href="/" style={navLink}>Home</a>
+              <a href="#work" style={{ ...navLink, borderBottom: '2px solid var(--neuroid-ink)' }}>Work</a>
+              <a href="/#services" style={navLink}>Services</a>
+              <a href="/#about" style={navLink}>About</a>
+              <a href="/lets-talk" className="nrd-btnlink" style={{ textDecoration: 'none', marginLeft: '4px' }}>
+                <Button variant="primary" block size="sm">Book a Growth Audit</Button>
+              </a>
             </div>
+
+            <button className="nrd-nav-mobile" onClick={() => setMobileMenu((m) => !m)} aria-label="Menu" aria-expanded={mobileMenu} style={{ background: 'none', border: '1.5px solid var(--neuroid-ink)', width: '44px', height: '40px', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '4px', cursor: 'pointer', padding: 0 }}>
+              <span style={{ width: '18px', height: '2px', background: 'var(--neuroid-ink)', display: 'block' }} />
+              <span style={{ width: '18px', height: '2px', background: 'var(--neuroid-ink)', display: 'block' }} />
+              <span style={{ width: '18px', height: '2px', background: 'var(--neuroid-ink)', display: 'block' }} />
+            </button>
           </nav>
         </div>
 
-        {mobileMenuOpen && (
-          <div style={{ borderTop: '1.5px solid var(--neuroid-ink)', background: 'var(--neuroid-paper)', padding: '8px clamp(18px,4vw,56px) 18px' }}>
+        {mobileMenu && (
+          <div className="nrd-nav-mobile-panel" style={{ borderTop: '1.5px solid var(--neuroid-ink)', background: 'var(--neuroid-paper)', padding: '8px clamp(18px,4vw,56px) 18px' }}>
             <a href="/" onClick={() => setMobileMenu(false)} style={{ display: 'block', textDecoration: 'none', color: 'var(--neuroid-ink)', padding: '12px 0', fontWeight: 600, borderBottom: '1px solid rgba(12,12,12,0.1)' }}>Home</a>
             <a href="#work" onClick={() => setMobileMenu(false)} style={{ display: 'block', textDecoration: 'none', color: 'var(--neuroid-ink)', padding: '12px 0', fontWeight: 600, borderBottom: '1px solid rgba(12,12,12,0.1)' }}>Work</a>
             <a href="/#services" onClick={() => setMobileMenu(false)} style={{ display: 'block', textDecoration: 'none', color: 'var(--neuroid-ink)', padding: '12px 0', fontWeight: 600, borderBottom: '1px solid rgba(12,12,12,0.1)' }}>Services</a>

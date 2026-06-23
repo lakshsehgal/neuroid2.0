@@ -47,7 +47,7 @@ export default function HeroGallery() {
       inner = <video src={m.video} loop playsInline preload="none" ref={register}
         style={{ display: 'block', width: '100%', aspectRatio: ar, objectFit: 'cover', background: 'var(--neuroid-ink)' }} />;
     } else {
-      inner = <img src={m.img} loading="eager" alt=""
+      inner = <img src={m.img} loading="lazy" decoding="async" alt=""
         style={{ display: 'block', width: '100%', aspectRatio: ar, objectFit: 'cover' }} />;
     }
     return (

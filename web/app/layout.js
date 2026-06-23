@@ -1,4 +1,37 @@
+import localFont from 'next/font/local';
 import './globals.css';
+
+// Self-hosted, preloaded fonts. next/font eliminates the flash-of-unstyled-text
+// (FOUT) by preloading and applying a size-adjusted fallback to avoid layout
+// shift. Each exposes a CSS variable consumed by the design tokens in globals.css.
+const dmSans = localFont({
+  src: [
+    { path: '../public/fonts/DMSans-Variable.ttf', weight: '100 1000', style: 'normal' },
+    { path: '../public/fonts/DMSans-Italic-Variable.ttf', weight: '100 1000', style: 'italic' },
+  ],
+  variable: '--font-dm-sans',
+  display: 'swap',
+  fallback: ['system-ui', '-apple-system', 'Segoe UI', 'sans-serif'],
+  adjustFontFallback: 'Arial',
+});
+
+const ppEditorial = localFont({
+  src: '../public/fonts/PPEditorialNew-Italic.otf',
+  weight: '400',
+  style: 'italic',
+  variable: '--font-pp-editorial',
+  display: 'swap',
+  fallback: ['Georgia', 'Times New Roman', 'serif'],
+});
+
+const fhLecturis = localFont({
+  src: '../public/fonts/FHLecturis-Bold.otf',
+  weight: '700',
+  style: 'normal',
+  variable: '--font-fh-lecturis',
+  display: 'swap',
+  fallback: ['sans-serif'],
+});
 
 export const metadata = {
   title: 'Neuroid — Integrated Growth & Creative Studio for D2C brands',
@@ -20,7 +53,7 @@ export const viewport = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${dmSans.variable} ${ppEditorial.variable} ${fhLecturis.variable}`}>
       <body>{children}</body>
     </html>
   );
