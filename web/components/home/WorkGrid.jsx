@@ -2,11 +2,16 @@
 import React, { useEffect, useRef } from 'react';
 
 const INK = 'var(--neuroid-ink)', YEL = 'var(--neuroid-yellow)';
+// Cloudinary delivery: auto format + quality, sized to the card (~640px wide)
+// rather than the multi-MB source file. CLP = a still poster (first frame)
+// shown instantly while the clip loads.
+const CLV = 'https://res.cloudinary.com/dbuklvo6b/video/upload/f_auto,q_auto,w_640/';
+const CLP = 'https://res.cloudinary.com/dbuklvo6b/video/upload/f_jpg,q_auto,w_640,so_0/';
 const CARDS = [
-  { brand: 'Wooden Street', stat: '5x+', label: 'ROAS at scale', bg: YEL, numColor: INK, labelColor: 'rgba(12,12,12,0.62)', video: 'https://res.cloudinary.com/dbuklvo6b/video/upload/v1782212460/Video-875_blwuip.mp4' },
-  { brand: 'Kisah', stat: '7x', label: 'jump in MRR', bg: INK, numColor: YEL, labelColor: 'rgba(255,255,255,0.65)', video: 'https://res.cloudinary.com/dbuklvo6b/video/upload/v1782212490/Video-582_qsssrj.mp4' },
-  { brand: 'Jewelsmars', stat: '207%', label: 'MRR in 5 months', bg: YEL, numColor: INK, labelColor: 'rgba(12,12,12,0.62)', video: 'https://res.cloudinary.com/dbuklvo6b/video/upload/v1782212460/Video-493_cqwg5m.mp4' },
-  { brand: 'Lifelong', stat: '7.5x', label: 'peak ROAS', bg: INK, numColor: YEL, labelColor: 'rgba(255,255,255,0.65)', video: 'https://res.cloudinary.com/dbuklvo6b/video/upload/v1782212463/Video-696_m6abg3.mp4' },
+  { brand: 'Wooden Street', stat: '5x+', label: 'ROAS at scale', bg: YEL, numColor: INK, labelColor: 'rgba(12,12,12,0.62)', vid: 'v1782212460/Video-875_blwuip' },
+  { brand: 'Kisah', stat: '7x', label: 'jump in MRR', bg: INK, numColor: YEL, labelColor: 'rgba(255,255,255,0.65)', vid: 'v1782212490/Video-582_qsssrj' },
+  { brand: 'Jewelsmars', stat: '207%', label: 'MRR in 5 months', bg: YEL, numColor: INK, labelColor: 'rgba(12,12,12,0.62)', vid: 'v1782212460/Video-493_cqwg5m' },
+  { brand: 'Lifelong', stat: '7.5x', label: 'peak ROAS', bg: INK, numColor: YEL, labelColor: 'rgba(255,255,255,0.65)', vid: 'v1782212463/Video-696_m6abg3' },
 ];
 
 export default function WorkGrid() {
@@ -38,7 +43,7 @@ export default function WorkGrid() {
             onMouseEnter={(e) => { e.currentTarget.style.transform = 'translate(-3px,-3px)'; e.currentTarget.style.boxShadow = '9px 9px 0 0 ' + YEL; hoverRef.current = true; const ov = ovRefs.current[i]; if (ov) ov.style.clipPath = 'inset(0% 0 0 0)'; }}
             onMouseLeave={(e) => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = '5px 5px 0 0 ' + INK; hoverRef.current = false; const ov = ovRefs.current[i]; if (ov) ov.style.clipPath = 'inset(52% 0 0 0)'; }}
           >
-            <video src={c.video} autoPlay loop muted playsInline controls={false} disablePictureInPicture preload="metadata" aria-label={c.brand + ' creative'}
+            <video src={CLV + c.vid + '.mp4'} poster={CLP + c.vid + '.jpg'} autoPlay loop muted playsInline controls={false} disablePictureInPicture preload="metadata" aria-label={c.brand + ' creative'}
               ref={(el) => { if (el) { el.muted = true; el.defaultMuted = true; el.volume = 0; const p = el.play(); if (p && p.catch) p.catch(() => {}); } }}
               style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block', background: '#0C0C0C' }} />
             <div ref={(el) => { ovRefs.current[i] = el; }}
