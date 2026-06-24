@@ -12,7 +12,9 @@ const CL = 'https://res.cloudinary.com/dbuklvo6b/video/upload/f_auto,q_auto,w_48
 function buildItems() {
   // [cloudPath, brand, category]
   const V = [
+    ['v1782322750/HK_Video_2_d54lku', 'Haus & Kinder', 'film'],
     ['v1782043217/UNO_Luxe_V2_lefbae', 'UNO Luxe', 'film'],
+    ['v1782322787/HnK_Sheer_V1_lesdwj', 'Haus & Kinder', 'social'],
     ['v1782042891/Yoho_Pitstop_H1_V2_3_jdlfvv', 'Yoho', 'perf'],
     ['v1782042845/H1_CupJi_V1_3_nb1jzu', 'Cup Ji', 'ugc'],
     ['v1782042844/PU_3___Hook_2_1_egyvbl', 'Period Underwear', 'ugc'],

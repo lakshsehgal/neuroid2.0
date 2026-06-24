@@ -6,7 +6,8 @@ import { useVideoVisibility } from '@/lib/useVideoVisibility';
 // at this size. No poster: the clips themselves are the point of this wall.
 const CLV = 'https://res.cloudinary.com/dbuklvo6b/video/upload/f_auto,q_auto:eco,w_400/';
 const VIDEOS = [
-  'v1782043217/UNO_Luxe_V2_lefbae', 'v1782042891/Yoho_Pitstop_H1_V2_3_jdlfvv',
+  'v1782322750/HK_Video_2_d54lku', 'v1782043217/UNO_Luxe_V2_lefbae',
+  'v1782322787/HnK_Sheer_V1_lesdwj', 'v1782042891/Yoho_Pitstop_H1_V2_3_jdlfvv',
   'v1782042845/H1_CupJi_V1_3_nb1jzu', 'v1782042844/PU_3___Hook_2_1_egyvbl',
   'v1782042843/9X16_V1_r2yjdc', 'v1782042842/Karassa_UGC_2_2_w1avqf',
   'v1782042839/Svarn_Jewels_CC146_inm6hs', 'v1782042838/CC15_V3_ad3uqu',
