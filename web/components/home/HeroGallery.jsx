@@ -2,11 +2,9 @@
 import React from 'react';
 import { useVideoVisibility } from '@/lib/useVideoVisibility';
 
-// Eco-quality clips at ~400px (tiles render small). Posters use the LOCAL
-// brand stills in /assets/cmp (instant, CDN-cached) — so every tile shows a
-// brand image immediately and only a few clips actually stream at once.
+// Eco-quality clips at ~400px (tiles render small) — lighter to load, identical
+// at this size. No poster: the clips themselves are the point of this wall.
 const CLV = 'https://res.cloudinary.com/dbuklvo6b/video/upload/f_auto,q_auto:eco,w_400/';
-const cmp = (i) => `/assets/cmp/c${String((i % 26) + 1).padStart(2, '0')}.jpg`;
 const VIDEOS = [
   'v1782043217/UNO_Luxe_V2_lefbae', 'v1782042891/Yoho_Pitstop_H1_V2_3_jdlfvv',
   'v1782042845/H1_CupJi_V1_3_nb1jzu', 'v1782042844/PU_3___Hook_2_1_egyvbl',
@@ -23,7 +21,7 @@ const VIDEOS = [
   'v1782042790/PU_02_May_H2.wav_1_lvicth', 'v1782042780/CC12_ceratine_Final_svatid',
   'v1782042777/Polo_Gif_ybhdjd', 'v1782042777/9x16_cova4q',
   'v1782042774/CC3___Hard_Launch_-_Short_Kurta_oxl7wu',
-].map((p, i) => ({ video: CLV + p + '.mp4', poster: cmp(i) }));
+].map((p) => ({ video: CLV + p + '.mp4' }));
 const STATICS = Array.from({ length: 26 }, (_, i) => `/assets/cmp/c${String(i + 1).padStart(2, '0')}.jpg`);
 const AR = ['3/4', '1/1', '4/5', '3/4', '4/5', '1/1', '3/4', '4/5', '1/1'];
 const ANIMS = [
@@ -33,7 +31,7 @@ const ANIMS = [
 ];
 
 export default function HeroGallery() {
-  const register = useVideoVisibility(8);
+  const register = useVideoVisibility();
 
   // Interleave videos and statics, then distribute round-robin into 3 columns.
   const M = [];
@@ -48,7 +46,7 @@ export default function HeroGallery() {
   const tile = (m, ar, key) => {
     let inner;
     if (m.video) {
-      inner = <video src={m.video} poster={m.poster} loop playsInline muted preload="none" ref={register}
+      inner = <video src={m.video} loop playsInline muted preload="none" ref={register}
         style={{ display: 'block', width: '100%', aspectRatio: ar, objectFit: 'cover', background: 'var(--neuroid-ink)' }} />;
     } else {
       inner = <img src={m.img} loading="lazy" decoding="async" alt=""

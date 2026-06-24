@@ -1,5 +1,6 @@
 'use client';
 import React, { useEffect, useRef } from 'react';
+import { useVideoVisibility } from '@/lib/useVideoVisibility';
 
 const INK = 'var(--neuroid-ink)', YEL = 'var(--neuroid-yellow)';
 const CARDS = [
@@ -10,6 +11,9 @@ const CARDS = [
 ];
 
 export default function WorkGrid() {
+  // Play each clip only when its card scrolls into view (from the start),
+  // instead of autoplaying at page load — so you don't arrive at the tail end.
+  const register = useVideoVisibility();
   const sectionRef = useRef(null);
   const ovRefs = useRef([]);
   const hoverRef = useRef(false);
@@ -38,8 +42,8 @@ export default function WorkGrid() {
             onMouseEnter={(e) => { e.currentTarget.style.transform = 'translate(-3px,-3px)'; e.currentTarget.style.boxShadow = '9px 9px 0 0 ' + YEL; hoverRef.current = true; const ov = ovRefs.current[i]; if (ov) ov.style.clipPath = 'inset(0% 0 0 0)'; }}
             onMouseLeave={(e) => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = '5px 5px 0 0 ' + INK; hoverRef.current = false; const ov = ovRefs.current[i]; if (ov) ov.style.clipPath = 'inset(52% 0 0 0)'; }}
           >
-            <video src={c.video} autoPlay loop muted playsInline controls={false} disablePictureInPicture preload="metadata" aria-label={c.brand + ' creative'}
-              ref={(el) => { if (el) { el.muted = true; el.defaultMuted = true; el.volume = 0; const p = el.play(); if (p && p.catch) p.catch(() => {}); } }}
+            <video src={c.video} loop muted playsInline controls={false} disablePictureInPicture preload="metadata" aria-label={c.brand + ' creative'}
+              ref={register}
               style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block', background: '#0C0C0C' }} />
             <div className="nrd-work-ov" ref={(el) => { ovRefs.current[i] = el; }}
               style={{ position: 'absolute', inset: 0, background: `color-mix(in srgb, ${c.bg} ${c.bg === YEL ? '60%' : '70%'}, transparent)`, clipPath: 'inset(52% 0 0 0)', transition: 'clip-path .55s var(--ease-snap)', zIndex: 3, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: '18px', pointerEvents: 'none' }}>
