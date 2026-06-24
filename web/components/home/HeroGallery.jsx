@@ -2,7 +2,11 @@
 import React from 'react';
 import { useVideoVisibility } from '@/lib/useVideoVisibility';
 
-const CL = 'https://res.cloudinary.com/dbuklvo6b/video/upload/f_auto,q_auto,w_480/';
+// Tiles render small, so deliver eco-quality clips at ~400px and a still
+// poster (first frame) that shows instantly while the clip buffers — kills the
+// "blank tile then pops in" lag.
+const CLV = 'https://res.cloudinary.com/dbuklvo6b/video/upload/f_auto,q_auto:eco,w_400/';
+const CLP = 'https://res.cloudinary.com/dbuklvo6b/video/upload/f_jpg,q_auto,w_400,so_0/';
 const VIDEOS = [
   'v1782043217/UNO_Luxe_V2_lefbae', 'v1782042891/Yoho_Pitstop_H1_V2_3_jdlfvv',
   'v1782042845/H1_CupJi_V1_3_nb1jzu', 'v1782042844/PU_3___Hook_2_1_egyvbl',
@@ -19,7 +23,7 @@ const VIDEOS = [
   'v1782042790/PU_02_May_H2.wav_1_lvicth', 'v1782042780/CC12_ceratine_Final_svatid',
   'v1782042777/Polo_Gif_ybhdjd', 'v1782042777/9x16_cova4q',
   'v1782042774/CC3___Hard_Launch_-_Short_Kurta_oxl7wu',
-].map((p) => ({ video: CL + p + '.mp4' }));
+].map((p) => ({ video: CLV + p + '.mp4', poster: CLP + p + '.jpg' }));
 const STATICS = Array.from({ length: 26 }, (_, i) => `/assets/cmp/c${String(i + 1).padStart(2, '0')}.jpg`);
 const AR = ['3/4', '1/1', '4/5', '3/4', '4/5', '1/1', '3/4', '4/5', '1/1'];
 const ANIMS = [
@@ -44,7 +48,7 @@ export default function HeroGallery() {
   const tile = (m, ar, key) => {
     let inner;
     if (m.video) {
-      inner = <video src={m.video} loop playsInline preload="none" ref={register}
+      inner = <video src={m.video} poster={m.poster} loop playsInline muted preload="none" ref={register}
         style={{ display: 'block', width: '100%', aspectRatio: ar, objectFit: 'cover', background: 'var(--neuroid-ink)' }} />;
     } else {
       inner = <img src={m.img} loading="lazy" decoding="async" alt=""
