@@ -626,6 +626,6 @@ a.nrd-btnlink:hover button{transform:translate(-2px,-2px) !important;box-shadow:
 @media (max-width:760px){
   .nrd-rib-sec{height:200px !important;}
   .nrd-rib-y{top:34% !important;transform:translateY(-50%) rotate(-2.5deg) !important;}
-  .nrd-rib-i{top:68% !important;transform:translateY(-50%) rotate(2.5deg) !important;}
+  .nrd-rib-i{top:68% !important;transform:translateY(-50%) rotate(-2.5deg) !important;}
 }
 
