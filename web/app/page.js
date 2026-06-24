@@ -62,7 +62,7 @@ export default function Home() {
       {/* HERO */}
       <section id="top" style={{ position: 'relative', minHeight: '94vh', background: 'radial-gradient(circle at center, rgba(12,12,12,0.07) 1.3px, transparent 1.9px) 0 0 / 22px 22px, #F4F1EA', color: 'var(--neuroid-ink)', display: 'flex', alignItems: 'center', padding: 'clamp(40px,5vw,72px) clamp(18px,4vw,56px)', overflow: 'hidden' }}>
         <div className="nrd-hero" style={{ position: 'relative', maxWidth: '1280px', margin: '0 auto', width: '100%' }}>
-          <div>
+          <div className="nrd-hero-copy">
             <div style={{ ...eyebrow, marginBottom: '26px', color: 'var(--neuroid-ink)' }}><span style={eyebrowSq} /><span>Integrated Growth &amp; Creative Studio</span></div>
             <h1 style={{ fontFamily: 'var(--font-sans)', fontWeight: 700, letterSpacing: '-0.035em', lineHeight: 1.0, fontSize: 'clamp(2.6rem,5.6vw,4.8rem)', margin: 0, textWrap: 'balance', color: 'var(--neuroid-ink)' }}>Content that <span className="nrd-highlight">connects</span>. Performance that <span className="nrd-highlight">compounds</span><span style={redSquare} /></h1>
             <p style={{ fontSize: 'clamp(1.05rem,1.6vw,1.3rem)', lineHeight: 1.5, maxWidth: '560px', margin: '28px 0 0', color: 'var(--neuroid-grey)' }}>Scroll-stopping creatives and the performance marketing that scales it - built by one team, run on one loop, so your ROAS and your brand grow together.</p>

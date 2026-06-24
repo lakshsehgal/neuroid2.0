@@ -435,6 +435,10 @@ a.nrd-btnlink:hover button{transform:translate(-2px,-2px) !important;box-shadow:
 @media (max-width:860px){
   .nrd-hero{grid-template-columns:1fr !important;gap:36px !important;}
   .nrd-hero-art{height:clamp(300px,46vh,420px) !important;}
+  /* centre the hero copy on phones (common mobile pattern; stays left on desktop) */
+  .nrd-hero-copy{text-align:center;}
+  .nrd-hero-copy > div{justify-content:center;}
+  .nrd-hero-copy p{margin-left:auto;margin-right:auto;}
 }
 @media (max-width:520px){ .nrd-hero-art{height:260px !important;} }
 @media (max-width:640px){
