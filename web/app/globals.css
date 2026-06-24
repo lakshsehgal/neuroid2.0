@@ -439,6 +439,9 @@ a.nrd-btnlink:hover button{transform:translate(-2px,-2px) !important;box-shadow:
   .nrd-hero-copy{text-align:center;}
   .nrd-hero-copy > div{justify-content:center;}
   .nrd-hero-copy p{margin-left:auto;margin-right:auto;}
+  /* centre the Trusted-partner label and its logo chips too */
+  .nrd-hero-partners{justify-content:center;}
+  .nrd-hero-partners > div{justify-content:center;}
 }
 @media (max-width:520px){ .nrd-hero-art{height:260px !important;} }
 @media (max-width:640px){

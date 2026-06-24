@@ -70,7 +70,7 @@ export default function Home() {
               <a href="/lets-talk" className="nrd-btnlink" style={{ textDecoration: 'none' }}><Button variant="primary" block size="lg">Book a Growth Audit</Button></a>
               <a href="/portfolio" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', textDecoration: 'none', color: 'var(--neuroid-ink)', fontFamily: 'var(--font-sans)', fontWeight: 700, fontSize: '16px', letterSpacing: '-0.01em', borderBottom: '2px solid var(--neuroid-ink)', paddingBottom: '3px' }}>See the work <span aria-hidden="true">→</span></a>
             </div>
-            <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '14px 16px', marginTop: '42px' }}>
+            <div className="nrd-hero-partners" style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '14px 16px', marginTop: '42px' }}>
               <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '0.16em', textTransform: 'uppercase', color: 'var(--neuroid-grey)', fontWeight: 700 }}>Trusted partner</span>
               <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'stretch', gap: '10px' }}>
                 {PARTNERS.map((p, i) => (
