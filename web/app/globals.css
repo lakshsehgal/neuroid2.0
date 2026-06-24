@@ -616,3 +616,16 @@ a.nrd-btnlink:hover button{transform:translate(-2px,-2px) !important;box-shadow:
   .nrd-c2{min-width:620px;}
 }
 
+/* Case-study cards: no hover on touch, so reveal the stat overlay fully. */
+@media (hover:none){
+  .nrd-work-ov{clip-path:inset(0 0 0 0) !important;}
+}
+
+/* Proof ribbons: the two bars cross at center, which hides the yellow one on a
+   narrow screen. On phones stack them apart so both read clearly. */
+@media (max-width:760px){
+  .nrd-rib-sec{height:200px !important;}
+  .nrd-rib-y{top:34% !important;transform:translateY(-50%) rotate(-2.5deg) !important;}
+  .nrd-rib-i{top:68% !important;transform:translateY(-50%) rotate(2.5deg) !important;}
+}
+

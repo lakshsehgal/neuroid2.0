@@ -41,7 +41,7 @@ export default function WorkGrid() {
             <video src={c.video} autoPlay loop muted playsInline controls={false} disablePictureInPicture preload="metadata" aria-label={c.brand + ' creative'}
               ref={(el) => { if (el) { el.muted = true; el.defaultMuted = true; el.volume = 0; const p = el.play(); if (p && p.catch) p.catch(() => {}); } }}
               style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block', background: '#0C0C0C' }} />
-            <div ref={(el) => { ovRefs.current[i] = el; }}
+            <div className="nrd-work-ov" ref={(el) => { ovRefs.current[i] = el; }}
               style={{ position: 'absolute', inset: 0, background: `color-mix(in srgb, ${c.bg} ${c.bg === YEL ? '60%' : '70%'}, transparent)`, clipPath: 'inset(52% 0 0 0)', transition: 'clip-path .55s var(--ease-snap)', zIndex: 3, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: '18px', pointerEvents: 'none' }}>
               <div style={{ fontFamily: 'var(--font-mono)', fontSize: '12px', letterSpacing: '0.06em', textTransform: 'uppercase', color: c.labelColor, marginBottom: '4px' }}>{c.label}</div>
               <div style={{ fontFamily: 'var(--font-sans)', fontWeight: 700, letterSpacing: '-0.04em', lineHeight: 0.92, fontSize: 'clamp(2.4rem,5vw,3.4rem)', color: c.numColor }}>{c.stat}</div>

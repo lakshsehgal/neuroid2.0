@@ -86,11 +86,11 @@ export default function Home() {
       </section>
 
       {/* PROOF RIBBONS */}
-      <section style={{ position: 'relative', background: 'radial-gradient(circle at center, rgba(12,12,12,0.07) 1.3px, transparent 1.9px) 0 0 / 22px 22px, #F4F1EA', overflow: 'hidden', height: 'clamp(150px,16vw,196px)', margin: '-1px 0' }}>
-        <div style={{ position: 'absolute', left: '-6%', top: '50%', width: '112%', transform: 'translateY(-50%) rotate(3.4deg)', background: 'var(--neuroid-yellow)', borderTop: '1.5px solid var(--neuroid-ink)', borderBottom: '1.5px solid var(--neuroid-ink)', overflow: 'hidden', zIndex: 1, boxShadow: '0 8px 18px rgba(0,0,0,0.10)' }}>
+      <section className="nrd-rib-sec" style={{ position: 'relative', background: 'radial-gradient(circle at center, rgba(12,12,12,0.07) 1.3px, transparent 1.9px) 0 0 / 22px 22px, #F4F1EA', overflow: 'hidden', height: 'clamp(150px,16vw,196px)', margin: '-1px 0' }}>
+        <div className="nrd-rib-y" style={{ position: 'absolute', left: '-6%', top: '50%', width: '112%', transform: 'translateY(-50%) rotate(3.4deg)', background: 'var(--neuroid-yellow)', borderTop: '1.5px solid var(--neuroid-ink)', borderBottom: '1.5px solid var(--neuroid-ink)', overflow: 'hidden', zIndex: 1, boxShadow: '0 8px 18px rgba(0,0,0,0.10)' }}>
           <Ribbon items={YEL_RIBBON} numColor="var(--neuroid-ink)" labelColor="var(--neuroid-ink)" labelOpacity={0.62} reverse />
         </div>
-        <div style={{ position: 'absolute', left: '-6%', top: '50%', width: '112%', transform: 'translateY(-50%) rotate(-3.4deg)', background: 'var(--neuroid-ink)', borderTop: '1.5px solid var(--neuroid-ink)', borderBottom: '1.5px solid var(--neuroid-ink)', overflow: 'hidden', zIndex: 2, boxShadow: '0 12px 26px rgba(0,0,0,0.22)' }}>
+        <div className="nrd-rib-i" style={{ position: 'absolute', left: '-6%', top: '50%', width: '112%', transform: 'translateY(-50%) rotate(-3.4deg)', background: 'var(--neuroid-ink)', borderTop: '1.5px solid var(--neuroid-ink)', borderBottom: '1.5px solid var(--neuroid-ink)', overflow: 'hidden', zIndex: 2, boxShadow: '0 12px 26px rgba(0,0,0,0.22)' }}>
           <Ribbon items={INK_RIBBON} numColor="var(--neuroid-yellow)" labelColor="#fff" labelOpacity={0.7} />
         </div>
       </section>
