@@ -1,15 +1,11 @@
 'use client';
 
-import { useRef, useEffect } from 'react';
+import { useRef } from 'react';
 import { useReveal } from '@/lib/useReveal';
-import { fbqTrack } from '@/lib/fbq';
 
 export default function BookingConfirmedPage() {
   const rootRef = useRef(null);
   useReveal(rootRef);
-
-  // Reaching the confirmation page means a call was booked.
-  useEffect(() => { fbqTrack('Schedule'); }, []);
 
   return (
     <div

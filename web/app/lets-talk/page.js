@@ -1,7 +1,6 @@
 'use client';
 import React, { useEffect, useRef } from 'react';
 import { useReveal } from '@/lib/useReveal';
-import { fbqTrack } from '@/lib/fbq';
 
 const LOGOS = [
   ['Lifelong', 'lifelong.png'],
@@ -27,9 +26,6 @@ export default function LetsTalkPage() {
   const rootRef = useRef(null);
   const calRef = useRef(null);
   useReveal(rootRef);
-
-  // Visiting Lets Talk counts as a Lead.
-  useEffect(() => { fbqTrack('Lead'); }, []);
 
   useEffect(() => {
     const url = 'https://calendly.com/lakshsehgal/bookacall?hide_gdpr_banner=1';
