@@ -5,8 +5,9 @@
 # allowance stretches much further than full-size uploads would.
 #
 # Usage: ./encode-videos.sh <source-dir> <out-dir>
-# Then drag the contents of <out-dir> into the `neuroid/` folder in the
-# ImageKit dashboard, keeping the file names (see video-manifest.txt).
+# Then drag the contents of <out-dir> into the `Videos/` folder in the
+# ImageKit dashboard, keeping the file names (lib/videos.js and its callers
+# reference them URL-encoded).
 set -euo pipefail
 
 src=${1:?usage: encode-videos.sh <source-dir> <out-dir>}
