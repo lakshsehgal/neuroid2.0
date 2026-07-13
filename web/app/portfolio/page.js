@@ -3,50 +3,49 @@ import React, { useState, useEffect, useRef } from 'react';
 import Button from '@/components/Button';
 import { useVideoVisibility } from '@/lib/useVideoVisibility';
 import { useReveal } from '@/lib/useReveal';
+import { vid } from '@/lib/videos';
 
 const INK = 'var(--neuroid-ink)';
 const YEL = 'var(--neuroid-yellow)';
 
-const CL = 'https://res.cloudinary.com/dbuklvo6b/video/upload/f_auto,q_auto,w_480/';
-
 function buildItems() {
-  // [cloudPath, brand, category]
+  // [clipName, brand, category]
   const V = [
-    ['v1782322750/HK_Video_2_d54lku', 'Haus & Kinder', 'film'],
-    ['v1782043217/UNO_Luxe_V2_lefbae', 'UNO Luxe', 'film'],
-    ['v1782322787/HnK_Sheer_V1_lesdwj', 'Haus & Kinder', 'social'],
-    ['v1782042891/Yoho_Pitstop_H1_V2_3_jdlfvv', 'Yoho', 'perf'],
-    ['v1782042845/H1_CupJi_V1_3_nb1jzu', 'Cup Ji', 'ugc'],
-    ['v1782042844/PU_3___Hook_2_1_egyvbl', 'Period Underwear', 'ugc'],
-    ['v1782042843/9X16_V1_r2yjdc', 'Spirit Animal', 'perf'],
-    ['v1782042842/Karassa_UGC_2_2_w1avqf', 'Karassa', 'ugc'],
-    ['v1782042839/Svarn_Jewels_CC146_inm6hs', 'Svarn Jewels', 'perf'],
-    ['v1782042838/CC15_V3_ad3uqu', 'Jewelsmars', 'perf'],
-    ['v1782042836/CC60_FRECKLES_VIDEO_silix5', 'Freckles', 'ugc'],
-    ['v1782478381/Room_Tour_9x16_1_uz6vqv', 'Haus & Kinder', 'social'],
-    ['v1782042833/Svarn_Jewels_CC140_wkdu2m', 'Svarn Jewels', 'social'],
-    ['v1782042831/CC33_PowerShift_Pants_video_jfrtn6', 'PowerShift', 'perf'],
-    ['v1782042826/Period_Underwear___Hook_2_oc2mad', 'Period Underwear', 'ugc'],
-    ['v1782042826/CC14_Girls_Leggings_V2_l7z8a6', 'Superbottoms', 'perf'],
-    ['v1782042820/CC14_1_smi6hm', 'Superbottoms', 'perf'],
-    ['v1782042817/9x16_V3_bscyvw', 'Lifelong', 'perf'],
-    ['v1782042816/CC5_Final_x5ejpn', 'Kisah', 'film'],
-    ['v1782042815/CC11_Understyling_your_eyes_npetnn', 'Huesfab', 'social'],
-    ['v1782042814/CC101_Bedtime_Supremacy_ptdoos', 'Silverfied', 'social'],
-    ['v1782472036/Cotton_Sheer_n4lnmg', 'Haus & Kinder', 'perf'],
-    ['v1782042812/CC115_Bestseller_Rings_ajsz9s', 'Jewelsmars', 'perf'],
-    ['v1782042807/CC60_Silverfied_Screen_Freeze_Product_final_lmtvvo', 'Silverfied', 'social'],
-    ['v1782042806/CC67_Silverfied_Stack_you_forget_to_take_off_fkuonn', 'Silverfied', 'social'],
-    ['v1782042805/CC56_silvercied_Msgs_in_DM_Final_srazws', 'Silverfied', 'social'],
-    ['v1782042799/Sequence_01_1_f4rpm7', 'Wooden Street', 'film'],
-    ['v1782042791/CC27_Huesfab_All_collection_Final_vi2rjm', 'Huesfab', 'social'],
-    ['v1782042790/PU_02_May_H2.wav_1_lvicth', 'Period Underwear', 'ugc'],
-    ['v1782472021/H_K_Blackout_Curtain_V1_rqiwvb', 'Haus & Kinder', 'film'],
-    ['v1782042780/CC12_ceratine_Final_svatid', 'Ceratine', 'perf'],
-    ['v1782042777/Polo_Gif_ybhdjd', 'Mackly', 'social'],
-    ['v1782042777/9x16_cova4q', 'Vaaree', 'perf'],
-    ['v1782042774/CC3___Hard_Launch_-_Short_Kurta_oxl7wu', 'Kisah', 'film'],
-  ].map((r) => ({ type: 'video', src: CL + r[0] + '.mp4', brand: r[1], cat: r[2] }));
+    ['HK_Video_2', 'Haus & Kinder', 'film'],
+    ['UNO_Luxe_V2', 'UNO Luxe', 'film'],
+    ['HnK_Sheer_V1', 'Haus & Kinder', 'social'],
+    ['Yoho_Pitstop_H1_V2_3', 'Yoho', 'perf'],
+    ['H1_CupJi_V1_3', 'Cup Ji', 'ugc'],
+    ['PU_3___Hook_2_1', 'Period Underwear', 'ugc'],
+    ['9X16_V1', 'Spirit Animal', 'perf'],
+    ['Karassa_UGC_2_2', 'Karassa', 'ugc'],
+    ['Svarn_Jewels_CC146', 'Svarn Jewels', 'perf'],
+    ['CC15_V3', 'Jewelsmars', 'perf'],
+    ['CC60_FRECKLES_VIDEO', 'Freckles', 'ugc'],
+    ['Room_Tour_9x16_1', 'Haus & Kinder', 'social'],
+    ['Svarn_Jewels_CC140', 'Svarn Jewels', 'social'],
+    ['CC33_PowerShift_Pants_video', 'PowerShift', 'perf'],
+    ['Period_Underwear___Hook_2', 'Period Underwear', 'ugc'],
+    ['CC14_Girls_Leggings_V2', 'Superbottoms', 'perf'],
+    ['CC14_1', 'Superbottoms', 'perf'],
+    ['9x16_V3', 'Lifelong', 'perf'],
+    ['CC5_Final', 'Kisah', 'film'],
+    ['CC11_Understyling_your_eyes', 'Huesfab', 'social'],
+    ['CC101_Bedtime_Supremacy', 'Silverfied', 'social'],
+    ['Cotton_Sheer', 'Haus & Kinder', 'perf'],
+    ['CC115_Bestseller_Rings', 'Jewelsmars', 'perf'],
+    ['CC60_Silverfied_Screen_Freeze_Product_final', 'Silverfied', 'social'],
+    ['CC67_Silverfied_Stack_you_forget_to_take_off', 'Silverfied', 'social'],
+    ['CC56_silvercied_Msgs_in_DM_Final', 'Silverfied', 'social'],
+    ['Sequence_01_1', 'Wooden Street', 'film'],
+    ['CC27_Huesfab_All_collection_Final', 'Huesfab', 'social'],
+    ['PU_02_May_H2.wav_1', 'Period Underwear', 'ugc'],
+    ['H_K_Blackout_Curtain_V1', 'Haus & Kinder', 'film'],
+    ['CC12_ceratine_Final', 'Ceratine', 'perf'],
+    ['Polo_Gif', 'Mackly', 'social'],
+    ['9x16', 'Vaaree', 'perf'],
+    ['CC3___Hard_Launch_-_Short_Kurta', 'Kisah', 'film'],
+  ].map((r) => ({ type: 'video', src: vid(r[0]), brand: r[1], cat: r[2] }));
 
   const statics = [
     ['c01.png', 'Wooden Street'], ['c02.png', 'Jewelsmars'], ['c03.png', 'Lifelong'],

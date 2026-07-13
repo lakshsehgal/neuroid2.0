@@ -1,13 +1,14 @@
 'use client';
 import React, { useEffect, useRef } from 'react';
 import { useVideoVisibility } from '@/lib/useVideoVisibility';
+import { vid } from '@/lib/videos';
 
 const INK = 'var(--neuroid-ink)', YEL = 'var(--neuroid-yellow)';
 const CARDS = [
-  { brand: 'Wooden Street', stat: '5x+', label: 'ROAS at scale', bg: YEL, numColor: INK, labelColor: 'rgba(12,12,12,0.62)', video: 'https://res.cloudinary.com/dbuklvo6b/video/upload/v1782212460/Video-875_blwuip.mp4' },
-  { brand: 'Kisah', stat: '7x', label: 'jump in MRR', bg: INK, numColor: YEL, labelColor: 'rgba(255,255,255,0.65)', video: 'https://res.cloudinary.com/dbuklvo6b/video/upload/v1782212490/Video-582_qsssrj.mp4' },
-  { brand: 'Jewelsmars', stat: '207%', label: 'MRR in 5 months', bg: YEL, numColor: INK, labelColor: 'rgba(12,12,12,0.62)', video: 'https://res.cloudinary.com/dbuklvo6b/video/upload/v1782212460/Video-493_cqwg5m.mp4' },
-  { brand: 'Lifelong', stat: '7.5x', label: 'peak ROAS', bg: INK, numColor: YEL, labelColor: 'rgba(255,255,255,0.65)', video: 'https://res.cloudinary.com/dbuklvo6b/video/upload/v1782212463/Video-696_m6abg3.mp4' },
+  { brand: 'Wooden Street', stat: '5x+', label: 'ROAS at scale', bg: YEL, numColor: INK, labelColor: 'rgba(12,12,12,0.62)', video: vid('Video-875') },
+  { brand: 'Kisah', stat: '7x', label: 'jump in MRR', bg: INK, numColor: YEL, labelColor: 'rgba(255,255,255,0.65)', video: vid('Video-582') },
+  { brand: 'Jewelsmars', stat: '207%', label: 'MRR in 5 months', bg: YEL, numColor: INK, labelColor: 'rgba(12,12,12,0.62)', video: vid('Video-493') },
+  { brand: 'Lifelong', stat: '7.5x', label: 'peak ROAS', bg: INK, numColor: YEL, labelColor: 'rgba(255,255,255,0.65)', video: vid('Video-696') },
 ];
 
 export default function WorkGrid() {
