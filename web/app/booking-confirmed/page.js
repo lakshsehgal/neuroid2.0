@@ -9,7 +9,13 @@ export default function BookingConfirmedPage() {
   useReveal(rootRef);
 
   // Reaching the confirmation page means a call was booked.
-  useEffect(() => { fbqTrack('Schedule'); }, []);
+  useEffect(() => {
+    fbqTrack('Schedule');
+    // Google Ads — Submit lead form conversion
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'conversion', { send_to: 'AW-18308117157/MmzICJi_sc0cEKXl_plE' });
+    }
+  }, []);
 
   return (
     <div

@@ -62,6 +62,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${dmSans.variable} ${ppEditorial.variable} ${fhLecturis.variable}`}>
       <body>
+        {/* Google tag (gtag.js) — site-wide, injected into <head> */}
+        <Script src="https://www.googletagmanager.com/gtag/js?id=AW-18308117157" strategy="beforeInteractive" />
+        <Script id="google-gtag" strategy="beforeInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'AW-18308117157');`}
+        </Script>
         {/* Meta Pixel — loads site-wide; fires PageView on every page load */}
         <Script id="meta-pixel" strategy="afterInteractive">
           {`!function(f,b,e,v,n,t,s)
