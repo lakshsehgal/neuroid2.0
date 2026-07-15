@@ -49,22 +49,66 @@ const FILES = [
   'CC3%20_%20Hard%20Launch%20-%20Short%20Kurta.mp4',
 ];
 
+async function exists(encodedName) {
+  try {
+    const res = await fetch(VIDEO_BASE + encodedName, { method: 'HEAD', cache: 'no-store' });
+    return res.status === 200;
+  } catch {
+    return false;
+  }
+}
+
+// For a file that 404s at its expected name, probe common naming variants
+// (case, extension case, " (n)" suffixes, space/underscore swaps) and return
+// the first variant that exists in the bucket.
+function variants(decodedName) {
+  const dot = decodedName.lastIndexOf('.');
+  const stem = decodedName.slice(0, dot);
+  const ext = decodedName.slice(dot);
+  const stems = new Set([stem]);
+  for (const s of [...stems]) {
+    stems.add(s.replace(/\s*\(\d+\)\s*$/, ''));      // drop " (n)"
+    stems.add(`${s} (1)`);                            // add " (1)"
+  }
+  for (const s of [...stems]) {
+    stems.add(s.replace(/9x16/gi, '9x16'));
+    stems.add(s.replace(/9x16/gi, '9X16'));
+    stems.add(s.replace(/_/g, ' '));
+    stems.add(s.replace(/ /g, '_'));
+    stems.add(s.replace(/\s+_\s+/g, '_'));
+    stems.add(s.replace(/\s{2,}/g, ' ').trim());
+    stems.add(s.toLowerCase());
+    stems.add(s.toUpperCase());
+  }
+  const exts = [ext, ext.toLowerCase(), ext.toUpperCase()];
+  const out = new Set();
+  for (const s of stems) for (const e of exts) out.add(s + e);
+  out.delete(decodedName);
+  return [...out].slice(0, 40);
+}
+
 export async function GET() {
   const results = await Promise.all(
-    FILES.map(async (file) => {
-      try {
-        const res = await fetch(VIDEO_BASE + file, { method: 'HEAD', cache: 'no-store' });
-        return { file, status: res.status };
-      } catch (err) {
-        return { file, status: 'fetch-error', message: String(err) };
+    FILES.map(async (file) => ({ file, ok: await exists(file) }))
+  );
+  const missing = results.filter((r) => !r.ok);
+
+  const probed = await Promise.all(
+    missing.map(async ({ file }) => {
+      const decoded = decodeURIComponent(file.replace(/\+/g, '%2B'));
+      for (const cand of variants(decoded)) {
+        const enc = encodeURIComponent(cand).replace(/[!'()*]/g, (c) => c === '(' || c === ')' ? c : encodeURIComponent(c));
+        if (await exists(enc)) return { expected: file, foundAs: enc };
       }
+      return { expected: file, foundAs: null };
     })
   );
-  const missing = results.filter((r) => r.status !== 200);
+
   return NextResponse.json({
     base: VIDEO_BASE,
     checked: results.length,
     ok: results.length - missing.length,
-    missing,
+    resolved: probed.filter((p) => p.foundAs),
+    notFoundAnywhere: probed.filter((p) => !p.foundAs).map((p) => p.expected),
   });
 }
