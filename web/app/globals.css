@@ -636,3 +636,23 @@ a.nrd-btnlink:hover button{transform:translate(-2px,-2px) !important;box-shadow:
   .nrd-rib-i{top:68% !important;transform:translateY(-50%) rotate(-2.5deg) !important;}
 }
 
+
+/* ---- WIP holding page (temporary maintenance mode — see app/layout.js) ---- */
+.wip-root{min-height:100dvh;display:flex;flex-direction:column;background:#F4F1EA;color:var(--neuroid-ink);font-family:var(--font-sans);overflow-x:hidden;}
+.wip-ticker{overflow:hidden;white-space:nowrap;background:var(--neuroid-ink);color:var(--neuroid-yellow);padding:0.6em 0;font-weight:700;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;border-bottom:1.5px solid var(--neuroid-ink);}
+.wip-ticker--yellow{background:var(--neuroid-yellow);color:var(--neuroid-ink);border-bottom:none;border-top:1.5px solid var(--neuroid-ink);}
+.wip-ticker-track{display:flex;width:max-content;animation:nrd-marquee 30s linear infinite;}
+.wip-main{flex:1;display:flex;align-items:center;justify-content:center;padding:clamp(48px,10vh,120px) clamp(18px,4vw,56px);}
+.wip-card{background:var(--neuroid-paper);border:1.5px solid var(--neuroid-ink);box-shadow:10px 10px 0 0 var(--neuroid-ink);padding:clamp(28px,5vw,64px);max-width:720px;width:100%;}
+.wip-eyebrow{display:flex;align-items:center;gap:10px;font-family:var(--font-mono);font-weight:600;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--neuroid-grey);margin-bottom:clamp(18px,3vw,28px);}
+.wip-square{width:8px;height:8px;background:var(--neuroid-red);display:inline-block;flex:none;}
+.wip-headline{font-family:var(--font-display);font-weight:700;line-height:0.98;letter-spacing:-0.035em;font-size:clamp(42px,7.5vw,84px);margin:0 0 clamp(16px,3vw,26px);}
+.wip-copy{font-size:clamp(15px,1.6vw,18px);line-height:1.6;max-width:46ch;margin:0 0 12px;}
+.wip-copy--muted{color:var(--neuroid-grey);margin-bottom:clamp(24px,4vw,36px);}
+.wip-actions{display:flex;align-items:center;gap:18px;flex-wrap:wrap;}
+.wip-btn{display:inline-flex;align-items:center;justify-content:center;background:var(--neuroid-yellow);color:var(--neuroid-ink);border:1.5px solid var(--neuroid-ink);box-shadow:3px 3px 0 0 var(--neuroid-ink);font-family:var(--font-sans);font-weight:700;font-size:15px;line-height:1;letter-spacing:-0.01em;padding:14px 22px;text-decoration:none;transition:transform var(--dur-fast) var(--ease-snap),box-shadow var(--dur-fast) var(--ease-snap);}
+.wip-btn:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 0 var(--neuroid-ink);}
+.wip-btn:active{transform:translate(3px,3px);box-shadow:0 0 0 0 var(--neuroid-ink);}
+@media (max-width:560px){
+  .wip-card{box-shadow:6px 6px 0 0 var(--neuroid-ink);}
+}

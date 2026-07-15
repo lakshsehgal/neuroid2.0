@@ -2,6 +2,11 @@ import localFont from 'next/font/local';
 import Script from 'next/script';
 import './globals.css';
 import { Analytics } from '@vercel/analytics/next';
+import Maintenance from '@/components/Maintenance';
+
+// TEMP: while true, every route shows the "website in progress" holding page
+// instead of the real site. Set back to false to restore the full site.
+const MAINTENANCE_MODE = true;
 
 // Self-hosted, preloaded fonts. next/font eliminates the flash-of-unstyled-text
 // (FOUT) by preloading and applying a size-adjusted fallback to avoid layout
@@ -74,7 +79,7 @@ fbq('track', 'PageView');`}
           <img height="1" width="1" style={{ display: 'none' }} alt=""
             src="https://www.facebook.com/tr?id=523876770030049&ev=PageView&noscript=1" />
         </noscript>
-        {children}
+        {MAINTENANCE_MODE ? <Maintenance /> : children}
         <Analytics />
       </body>
     </html>
