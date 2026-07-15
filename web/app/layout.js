@@ -6,7 +6,7 @@ import Maintenance from '@/components/Maintenance';
 
 // TEMP: while true, every route shows the "website in progress" holding page
 // instead of the real site. Set back to false to restore the full site.
-const MAINTENANCE_MODE = true;
+const MAINTENANCE_MODE = false;
 
 // Self-hosted, preloaded fonts. next/font eliminates the flash-of-unstyled-text
 // (FOUT) by preloading and applying a size-adjusted fallback to avoid layout
