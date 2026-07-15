@@ -5,10 +5,10 @@ import { vid } from '@/lib/videos';
 
 const INK = 'var(--neuroid-ink)', YEL = 'var(--neuroid-yellow)';
 const CARDS = [
-  { brand: 'Wooden Street', stat: '5x+', label: 'ROAS at scale', bg: YEL, numColor: INK, labelColor: 'rgba(12,12,12,0.62)', video: vid('Sequence%2001%20(1).mp4') },
-  { brand: 'Kisah', stat: '7x', label: 'jump in MRR', bg: INK, numColor: YEL, labelColor: 'rgba(255,255,255,0.65)', video: vid('CC3%20_%20Hard%20Launch%20-%20Short%20Kurta.mp4') },
-  { brand: 'Jewelsmars', stat: '207%', label: 'MRR in 5 months', bg: YEL, numColor: INK, labelColor: 'rgba(12,12,12,0.62)', video: vid('CC115%20Bestseller%20Rings.mp4') },
-  { brand: 'Lifelong', stat: '7.5x', label: 'peak ROAS', bg: INK, numColor: YEL, labelColor: 'rgba(255,255,255,0.65)', video: vid('9x16_V3.mp4') },
+  { brand: 'Wooden Street', stat: '5x+', label: 'ROAS at scale', bg: YEL, numColor: INK, labelColor: 'rgba(12,12,12,0.62)', video: vid('Video-875.mp4') },
+  { brand: 'Kisah', stat: '7x', label: 'jump in MRR', bg: INK, numColor: YEL, labelColor: 'rgba(255,255,255,0.65)', video: vid('Video-582.mp4') },
+  { brand: 'Jewelsmars', stat: '207%', label: 'MRR in 5 months', bg: YEL, numColor: INK, labelColor: 'rgba(12,12,12,0.62)', video: vid('Video-493.mp4') },
+  { brand: 'Lifelong', stat: '7.5x', label: 'peak ROAS', bg: INK, numColor: YEL, labelColor: 'rgba(255,255,255,0.65)', video: vid('Video-696.mp4') },
 ];
 
 export default function WorkGrid() {

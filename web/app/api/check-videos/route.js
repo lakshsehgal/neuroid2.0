@@ -47,6 +47,10 @@ const FILES = [
   'CC27%20Huesfab%20All%20collection%20Final.mp4',
   'Polo_Gif.mp4',
   'CC3%20_%20Hard%20Launch%20-%20Short%20Kurta.mp4',
+  'Video-582.mp4',
+  'Video-493.mp4',
+  'Video-696.mp4',
+  'Video-875.mp4',
 ];
 
 async function exists(encodedName) {
