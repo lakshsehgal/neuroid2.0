@@ -3,6 +3,6 @@
 // the full file name, URL-encoded exactly as stored — spaces as %20; &, +
 // and parentheses literal; extension included (one file is uppercase .MP4).
 // R2 object keys are case-sensitive, folder name included.
-export const VIDEO_BASE = 'https://pub-d8f7d40c14a64599b5c193ee2717a7e0.r2.dev/videos/';
+export const VIDEO_BASE = 'https://pub-d8f7d40c14a64599b5c193ee2717a7e0.r2.dev/Videos/';
 
 export const vid = (file) => VIDEO_BASE + file;
