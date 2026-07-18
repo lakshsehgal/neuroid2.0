@@ -43,7 +43,7 @@ function buildItems() {
     ['PU%2002%20May%20H2.wav%20(1).mp4', 'Period Underwear', 'ugc'],
     ['CC33_PowerShift%20Pants_video.mp4', 'PowerShift', 'perf'],
     ['Svarn%20Jewels_CC140.MP4', 'Svarn Jewels', 'social'],
-    ['Podcast%20V1.mp4', 'Superbottoms', 'film'],
+    ['Podcast%20V3.mp4', 'Superbottoms', 'film'],
     ['9x16.mp4', 'Vaaree', 'perf'],
     ['H&K%20Sheer+Blackout%20V2.mp4', 'Haus & Kinder', 'film'],
     ['CC12%20ceratine%20Final.mp4', 'Ceratine', 'perf'],
