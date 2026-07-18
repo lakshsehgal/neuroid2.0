@@ -2,6 +2,7 @@
 import React from 'react';
 import { useVideoVisibility } from '@/lib/useVideoVisibility';
 import { vid } from '@/lib/videos';
+import { rimg } from '@/lib/images';
 
 // Order is hand-shuffled so clips from the same brand never sit next to each
 // other on the wall. No poster: the clips themselves are the point.
@@ -47,6 +48,11 @@ const VIDEOS = [
   'CC3%20_%20Hard%20Launch%20-%20Short%20Kurta.mp4',
 ].map((p) => ({ video: vid(p) }));
 const STATICS = Array.from({ length: 26 }, (_, i) => `/assets/cmp/c${String(i + 1).padStart(2, '0')}.jpg`);
+// R2-hosted statics, scattered through the wall so same-brand tiles stay apart.
+STATICS.splice(4, 0, rimg('Gataca%20CC7%20V1.jpg'));
+STATICS.splice(11, 0, rimg('1x1%20(1).png'));
+STATICS.splice(19, 0, rimg('Artboard%201%20copy%202.jpg'));
+STATICS.splice(25, 0, rimg('1200x1200%20(1).png'));
 const AR = ['3/4', '1/1', '4/5', '3/4', '4/5', '1/1', '3/4', '4/5', '1/1'];
 const ANIMS = [
   { anim: 'nrd-rise-up', dur: '52s' },

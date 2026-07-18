@@ -4,6 +4,7 @@ import Button from '@/components/Button';
 import { useVideoVisibility } from '@/lib/useVideoVisibility';
 import { useReveal } from '@/lib/useReveal';
 import { vid } from '@/lib/videos';
+import { rimg } from '@/lib/images';
 
 const INK = 'var(--neuroid-ink)';
 const YEL = 'var(--neuroid-yellow)';
@@ -55,16 +56,22 @@ function buildItems() {
 
   const statics = [
     ['c01.png', 'Wooden Street'], ['c02.png', 'Jewelsmars'], ['c03.png', 'Lifelong'],
+    [rimg('1200x1200%20(1).png'), 'Chowkhat'],
     ['c04.png', 'Silverfied'], ['c05.png', 'Kisah'], ['c06.png', 'Yoho'],
-    ['c07.png', 'Superbottoms'], ['c08.png', 'Huesfab'], ['c09.png', 'Vaaree'],
+    ['c07.png', 'Superbottoms'], ['c08.png', 'Huesfab'],
+    [rimg('Gataca%20CC7%20V1.jpg'), 'Gataca'],
+    ['c09.png', 'Vaaree'],
     ['c10.jpg', 'Mackly'], ['c11.jpg', 'Nourish You'], ['c12.jpg', 'Spirit Animal'],
-    ['c13.jpg', 'Awenest'], ['c14.jpg', 'Ghani Putri'], ['c15.jpg', 'Loving Crafts'],
+    ['c13.jpg', 'Awenest'], ['c14.jpg', 'Ghani Putri'],
+    [rimg('1x1%20(1).png'), 'Jewelsmars'],
+    ['c15.jpg', 'Loving Crafts'],
     ['c16.jpg', 'Chowkhat'], ['c17.jpg', 'Supersox'], ['c18.jpg', 'Vedansh'],
     ['c19.jpg', 'Jaipuri Crown'], ['c20.jpg', 'Gataca'], ['c21.jpg', 'Truth & Hair'],
+    [rimg('Artboard%201%20copy%202.jpg'), 'Chowkhat'],
     ['c22.png', 'Deep Impact'], ['c23.png', 'Evara'], ['c24.jpg', 'Wooden Street'],
     ['c25.jpg', 'Jewelsmars'], ['c26.jpg', 'Lifelong'],
   ].map((r) => {
-    const p = '/assets/cmp/' + r[0].replace(/\.(png|jpg|jpeg)$/i, '.jpg');
+    const p = r[0].startsWith('http') ? r[0] : '/assets/cmp/' + r[0].replace(/\.(png|jpg|jpeg)$/i, '.jpg');
     return { type: 'img', src: p, brand: r[1], cat: 'static' };
   });
 
