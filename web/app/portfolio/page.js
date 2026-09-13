@@ -61,31 +61,7 @@ function buildItems() {
     ['UGC%205%20Rush%20hourV2%20(3).mp4', 'ugc'],
   ].map((r) => ({ type: 'video', src: vid(r[0]), cat: r[1] }));
 
-  const statics = [
-    ['c01.png', 'Wooden Street'], ['c02.png', 'Jewelsmars'], ['c03.png', 'Lifelong'],
-    ['c04.png', 'Silverfied'], ['c05.png', 'Kisah'], ['c06.png', 'Yoho'],
-    ['c07.png', 'Superbottoms'], ['c08.png', 'Huesfab'], ['c09.png', 'Vaaree'],
-    ['c10.jpg', 'Mackly'], ['c11.jpg', 'Nourish You'], ['c12.jpg', 'Spirit Animal'],
-    ['c13.jpg', 'Awenest'], ['c14.jpg', 'Ghani Putri'], ['c15.jpg', 'Loving Crafts'],
-    ['c16.jpg', 'Chowkhat'], ['c17.jpg', 'Supersox'], ['c18.jpg', 'Vedansh'],
-    ['c19.jpg', 'Jaipuri Crown'], ['c20.jpg', 'Gataca'], ['c21.jpg', 'Truth & Hair'],
-    ['c22.png', 'Deep Impact'], ['c23.png', 'Evara'], ['c24.jpg', 'Wooden Street'],
-    ['c25.jpg', 'Jewelsmars'], ['c26.jpg', 'Lifelong'],
-  ].map((r) => {
-    const p = '/assets/cmp/' + r[0].replace(/\.(png|jpg|jpeg)$/i, '.jpg');
-    return { type: 'img', src: p, brand: r[1], cat: 'static' };
-  });
-
-  // Interleave videos and statics for a lively, mixed wall
-  const out = [];
-  const n = Math.max(V.length, statics.length);
-  for (let i = 0; i < n; i++) {
-    if (i < V.length) out.push(V[i]);
-    if (i % 2 === 1 && (i >> 1) < statics.length) out.push(statics[i >> 1]);
-  }
-  // append remaining statics
-  statics.forEach((s, i) => { if (i % 2 === 0) out.push(s); });
-  return out;
+  return V;
 }
 
 const STATS = [
