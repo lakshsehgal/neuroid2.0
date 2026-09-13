@@ -4,11 +4,17 @@
 // Mirrors the handoff's _registerVideo (a single polling loop over a Set).
 import { useEffect, useRef, useCallback } from 'react';
 
-export function useVideoVisibility() {
+// Pass an optional ref; while its .current is truthy every registered clip is
+// paused (e.g. while a lightbox plays, so it gets the whole connection).
+export function useVideoVisibility(suspendRef) {
   const vids = useRef(new Set());
   useEffect(() => {
     const set = vids.current;
     const tick = () => {
+      if (suspendRef && suspendRef.current) {
+        set.forEach((v) => { if (!v.paused) v.pause(); });
+        return;
+      }
       const vh = window.innerHeight, vw = window.innerWidth;
       set.forEach((v) => {
         if (!v.isConnected) { set.delete(v); return; }

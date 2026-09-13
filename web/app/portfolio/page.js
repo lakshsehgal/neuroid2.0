@@ -111,12 +111,20 @@ const navLink = { textDecoration: 'none', color: 'var(--neuroid-ink)', padding: 
 
 export default function PortfolioPage() {
   const rootRef = useRef(null);
-  const registerVideo = useVideoVisibility();
+  const lightboxUpRef = useRef(false);
+  const registerVideo = useVideoVisibility(lightboxUpRef);
   useReveal(rootRef);
 
   const [w, setW] = useState(1280);
   const [mobileMenu, setMobileMenu] = useState(false);
   const [lightbox, setLightbox] = useState(null);
+
+  // While the lightbox is open, silence the wall immediately so the clicked
+  // clip doesn't compete with a dozen background streams for bandwidth.
+  useEffect(() => {
+    lightboxUpRef.current = !!lightbox;
+    if (lightbox) document.querySelectorAll('section video').forEach((v) => v.pause());
+  }, [lightbox]);
 
   useEffect(() => {
     const onResize = () => setW(window.innerWidth);
