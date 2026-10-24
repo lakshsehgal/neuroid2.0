@@ -30,7 +30,7 @@ export function LogoRow({ brands, reverse, dur = '46s' }) {
       onMouseEnter={(e) => { e.currentTarget.style.background = 'var(--neuroid-yellow)'; e.currentTarget.style.boxShadow = '3px 3px 0 0 var(--neuroid-ink)'; e.currentTarget.style.transform = 'translate(-1px,-1px)'; const img = e.currentTarget.querySelector('img'); if (img) { img.style.filter = 'none'; img.style.opacity = '1'; } }}
       onMouseLeave={(e) => { e.currentTarget.style.background = 'var(--neuroid-paper)'; e.currentTarget.style.boxShadow = 'none'; e.currentTarget.style.transform = 'none'; const img = e.currentTarget.querySelector('img'); if (img) { img.style.filter = 'grayscale(1)'; img.style.opacity = '0.82'; } }}
     >
-      <img src={`/assets/logos/${b[1]}`} alt={b[0]} loading="lazy"
+      <img src={b[1].startsWith('http') ? b[1] : `/assets/logos/${b[1]}`} alt={b[0]} loading={b[2] ? 'eager' : 'lazy'}
         style={{ maxWidth: '100%', maxHeight: '40px', width: 'auto', objectFit: 'contain', mixBlendMode: 'multiply', filter: 'grayscale(1)', opacity: 0.82, transition: 'filter .22s var(--ease-snap), opacity .22s var(--ease-snap)' }} />
     </div>
   );

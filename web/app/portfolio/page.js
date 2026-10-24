@@ -96,9 +96,9 @@ function LogoRow({ brands, reverse, dur }) {
       onMouseLeave={(e) => { e.currentTarget.style.background = 'var(--neuroid-paper)'; e.currentTarget.style.boxShadow = 'none'; e.currentTarget.style.transform = 'none'; const img = e.currentTarget.querySelector('img'); if (img) { img.style.filter = 'grayscale(1)'; img.style.opacity = '0.82'; } }}
     >
       <img
-        src={'/assets/logos/' + b[1]}
+        src={b[1].startsWith('http') ? b[1] : '/assets/logos/' + b[1]}
         alt={b[0]}
-        loading="lazy"
+        loading={b[2] ? 'eager' : 'lazy'}
         style={{ maxWidth: '100%', maxHeight: '38px', width: 'auto', objectFit: 'contain', mixBlendMode: 'multiply', filter: 'grayscale(1)', opacity: 0.82, transition: 'filter .22s var(--ease-snap), opacity .22s var(--ease-snap)' }}
       />
     </div>
@@ -113,7 +113,7 @@ function LogoRow({ brands, reverse, dur }) {
 }
 
 const ROW_A = [
-  ['Wooden Street', 'woodenstreet.png'], ['Lifelong', 'lifelong-k.png'], ['Jewelsmars', 'jewelsmars.png'], ['Silverfied', 'silverfied.png'],
+  ['Pebble', 'https://pub-d8f7d40c14a64599b5c193ee2717a7e0.r2.dev/images/logos/Horizontal%20Logo.png', true], ['The Man Company', 'https://pub-d8f7d40c14a64599b5c193ee2717a7e0.r2.dev/images/logos/TheManCompany_Logo.png', true], ['Wooden Street', 'woodenstreet.png'], ['Lifelong', 'lifelong-k.png'], ['Jewelsmars', 'jewelsmars.png'], ['Silverfied', 'silverfied.png'],
   ['Spirit Animal', 'spiritanimal.png'], ['Awenest', 'awenest.avif'], ['Truth & Hair', 'truthandhair.png'], ['Deep Impact', 'deepimpact.png'],
   ['Superbottoms', 'superbottoms.avif'], ['Kisah', 'kisah.avif'], ['Yoho', 'yoho.png'],
 ];
