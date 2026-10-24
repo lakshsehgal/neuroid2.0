@@ -44,7 +44,7 @@ const VALUES = [
   { img: '/assets/values/committed.min.jpg', num: '04', pre: '', em: 'Committed', post: '', body: 'We treat your P&L like it’s ours. (Ask our clients about the 3am problem-solving.)' },
 ];
 
-const ROW_A = [['Pebble', 'https://pub-d8f7d40c14a64599b5c193ee2717a7e0.r2.dev/images/logos/Horizontal%20Logo.png', true], ['The Man Company', 'https://pub-d8f7d40c14a64599b5c193ee2717a7e0.r2.dev/images/logos/TheManCompany_Logo.png', true], ['Wooden Street', 'woodenstreet.png'], ['Lifelong', 'lifelong-k.png'], ['Jewelsmars', 'jewelsmars.png'], ['Silverfied', 'silverfied.png'], ['Spirit Animal', 'spiritanimal.png'], ['Awenest', 'awenest.avif'], ['Truth & Hair', 'truthandhair.png'], ['Deep Impact', 'deepimpact.png'], ['Sylvi', 'sylvi.webp']];
+const ROW_A = [['Pebble', 'https://pub-d8f7d40c14a64599b5c193ee2717a7e0.r2.dev/images/logos/Horizontal%20Logo.png', true], ['The Man Company', 'https://pub-d8f7d40c14a64599b5c193ee2717a7e0.r2.dev/images/logos/TheManCompany_Logo.png', true, 1.8], ['Wooden Street', 'woodenstreet.png'], ['Lifelong', 'lifelong-k.png'], ['Jewelsmars', 'jewelsmars.png'], ['Silverfied', 'silverfied.png'], ['Spirit Animal', 'spiritanimal.png'], ['Awenest', 'awenest.avif'], ['Truth & Hair', 'truthandhair.png'], ['Deep Impact', 'deepimpact.png'], ['Sylvi', 'sylvi.webp']];
 const ROW_B = [['Superbottoms', 'superbottoms.avif'], ['Kisah', 'kisah.avif'], ['Yoho', 'yoho.png'], ['Jaipuri Crown', 'jaipuricrown.png'], ['Ghani Putri', 'ghaniputri.png'], ['Gataca', 'gataca.png'], ['Loving Crafts', 'lovingcrafts.avif'], ['Haus & Kinder', 'hausandkinder.avif'], ['Shyr Beauty', 'shyr.avif']];
 const ROW_C = [['Vaaree', 'vaaree-k.png'], ['Supersox', 'supersox-k.png'], ['Nourish You', 'nourishyou.png'], ['Evara', 'evara.svg'], ['Mackly', 'mackly.avif'], ['Vedansh', 'vedansh-k.png'], ['Chowkhat', 'chowkhat.avif']];
 
@@ -105,9 +105,9 @@ export default function Home() {
           </div>
         </div>
         <div data-reveal style={{ display: 'flex', flexDirection: 'column', gap: '16px', padding: '4px clamp(18px,4vw,56px) 0', WebkitMaskImage: 'linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent)', maskImage: 'linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent)' }}>
-          <div style={{ overflow: 'hidden' }}><LogoRow brands={ROW_A} reverse={false} dur="44s" /></div>
-          <div style={{ overflow: 'hidden' }}><LogoRow brands={ROW_B} reverse dur="57s" /></div>
-          <div style={{ overflow: 'hidden' }}><LogoRow brands={ROW_C} reverse={false} dur="50s" /></div>
+          <div style={{ overflow: 'hidden' }}><LogoRow brands={ROW_A} reverse dur="44s" /></div>
+          <div style={{ overflow: 'hidden' }}><LogoRow brands={ROW_B} reverse={false} dur="57s" /></div>
+          <div style={{ overflow: 'hidden' }}><LogoRow brands={ROW_C} reverse dur="50s" /></div>
         </div>
       </section>
 
